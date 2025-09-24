@@ -34,7 +34,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 const response = await fetch('productos.json');
                 const data = await response.json();
                 this.dolar = data.dolar;
-                this.products = data.productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                // Ordenar productos por nombre
+                let products = data.productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+                // Normalizar precios:
+                // - Si el precio viene como string en el JSON => se interpreta como USD y se convierte a Bs usando la tasa `dolar`.
+                // - Si el precio viene como número => se interpreta como Bs y se deja tal cual.
+                // Guardamos también metadatos auxiliares para depuración o posibles futuras vistas.
+                products = products.map(p => {
+                    const prod = Object.assign({}, p);
+                    if (typeof prod.precio === 'string') {
+                        // limpiar y normalizar coma decimal a punto
+                        const raw = prod.precio.trim().replace(/\s+/g, '').replace(/,/, '.');
+                        const usd = parseFloat(raw);
+                        const bs = isNaN(usd) ? 0 : Number((usd * this.dolar).toFixed(2));
+                        prod.precio = bs;
+                        prod._precio_original = { value: usd, currency: 'USD' };
+                        prod._precio_is_usd = true;
+                    } else {
+                        // asegurar que sea número
+                        const val = Number(prod.precio);
+                        prod.precio = isNaN(val) ? 0 : val;
+                        prod._precio_original = { value: prod.precio, currency: 'Bs' };
+                        prod._precio_is_usd = false;
+                    }
+                    return prod;
+                });
+
+                this.products = products;
                 this.elements.dolarValue.textContent = this.dolar.toFixed(2);
                 this.loadCart();
                 this.renderProducts();
@@ -63,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="font-bold">${product.nombre}</span>
                     <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                 </div>
-                <span class="mx-2 font-bold whitespace-nowrap">Bs. ${product.precio.toFixed(2)}</span>
+                <span class="mx-2 font-bold whitespace-nowrap">Bs. ${product.precio.toFixed(2)}${this.getOriginalPriceLabel(product)}</span>
                 <div class="flex items-center space-x-1">
                     <button class="minus-button bg-red-500 hover:bg-red-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-red-400" data-id="${product.id}" aria-label="Restar">
                         <i class="bi bi-dash-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
@@ -247,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span class="font-semibold">${product.nombre}</span>
                         <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                     </div>
-                    <div class="text-xs text-gray-500">Bs. ${product.precio.toFixed(2)} c/u</div>
+                    <div class="text-xs text-gray-500">Bs. ${product.precio.toFixed(2)} c/u${this.getOriginalPriceLabel(product)}</div>
                 </div>
                 <span class="mx-2 font-bold whitespace-nowrap">Bs. ${(product.precio * quantity).toFixed(2)}</span>
                 <div class="flex items-center space-x-1">
@@ -356,6 +383,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 .replace(/[-]/g, ' ')
                 .replace(/\s+/g, ' ') // Opcional: normaliza espacios múltiples
                 .trim();
+        }
+        ,
+        // Devuelve una etiqueta HTML pequeña con el precio original en USD si existe
+        getOriginalPriceLabel(product) {
+            try {
+                if (product && product._precio_is_usd && product._precio_original && !isNaN(Number(product._precio_original.value))) {
+                    const usd = Number(product._precio_original.value);
+                    return ` <span class="text-xs text-gray-500">($${usd.toFixed(2)})</span>`;
+                }
+            } catch (e) {
+                // noop
+            }
+            return '';
         }
     };
 
