@@ -27,7 +27,7 @@
   {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,63", "categoria": "General"},
   {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,45", "categoria": "General"},
   {"id": 26, "nombre": "Chocolate-Barra (st moritz)", "gramos": 50, "precio": "0,72", "categoria": "General"},
-  {"id": 115, "nombre": "Chocolate-Barra (st moritz)", "gramos": 100, "precio": "1,20", "categoria": "General"},
+  {"id": 115, "nombre": "Chocolate-Barra (st moritz)", "gramos": 85, "precio": "1,20", "categoria": "General"},
   {"id": 28, "nombre": "Clavitos-Dulce", "gramos": 20, "precio": "0,84", "categoria": "General"},
   {"id": 29, "nombre": "Cilantro-Semillas.", "gramos": 30, "precio": "0,42", "categoria": "General"},
   {"id": 30, "nombre": "Ciruelas-Pasas", "gramos": 100, "precio": "1,09", "categoria": "General"},
