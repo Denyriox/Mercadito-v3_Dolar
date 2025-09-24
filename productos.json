@@ -114,7 +114,7 @@
   {"id": 112, "nombre": "Vainilla Favorit-Mas", "gramos": 1, "precio": "1,9", "categoria": "General"},
   {"id": 113, "nombre": "Valeriana", "gramos": 10, "precio": "0,45", "categoria": "General"},
   {"id": 114, "nombre": "Ajonjolí", "gramos": 45, "precio": "0,54", "categoria": "General"},
-  {"id": 115, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2", "categoria": "General"},
+  {"id": 117, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2", "categoria": "General"},
   {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,54", "categoria": "General"},
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 350, "categoria": "General"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 130, "categoria": "General"},

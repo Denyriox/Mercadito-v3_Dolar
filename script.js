@@ -61,6 +61,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     return prod;
                 });
 
+                // Detectar ids duplicados en el JSON y avisar (previene errores al añadir al carrito)
+                const idCounts = products.reduce((acc, it) => {
+                    acc[it.id] = (acc[it.id] || 0) + 1;
+                    return acc;
+                }, {});
+                const dupIds = Object.keys(idCounts).filter(k => idCounts[k] > 1);
+                if (dupIds.length) {
+                    console.warn('productos.json: se detectaron ids duplicados en productos:', dupIds);
+                }
+
                 this.products = products;
                 this.elements.dolarValue.textContent = this.dolar.toFixed(2);
                 this.loadCart();
