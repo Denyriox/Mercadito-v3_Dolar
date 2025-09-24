@@ -1,0 +1,340 @@
+.minus-button.red {
+    background-color: #ef4444;
+    color: white;
+}
+
+/* --- BUTTONS: Modern, Homogeneous Style --- */
+button, .minus-button, .plus-button {
+    font-family: inherit;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 999px;
+    padding: 0.5em 1.2em;
+    font-size: 1rem;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+button:active, .minus-button:active, .plus-button:active {
+    transform: scale(0.97);
+}
+
+/* Específicos para botones de acción principal */
+#checkout-button, #open-cart-preview, #cart-button button {
+    font-size: 1.08rem;
+    padding: 0.8em 1.6em;
+    border-radius: 999px;
+    box-shadow: 0 4px 16px 0 #2563eb22;
+    font-weight: 700;
+}
+
+/* Iconos dentro de botones */
+button i, .minus-button i, .plus-button i {
+    margin: 0 0.2em 0 0;
+    vertical-align: middle;
+}
+
+/* Botón cerrar carrito */
+#close-cart {
+    border: none;
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+}
+#close-cart:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+#product-list::-webkit-scrollbar {
+    display: none;
+}
+
+#product-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* --- Layout del Carrito --- */
+#cart-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    overflow: hidden; /* Previene scroll en el contenedor principal */
+}
+
+#cart-items {
+    flex: 1 1 auto; /* Ocupa todo el espacio disponible */
+    overflow-y: auto; /* Permite scroll solo en la lista de productos */
+    min-height: 0; /* Necesario para que flexbox funcione correctamente en algunos navegadores */
+    padding: 1rem; /* Añade algo de espacio interno */
+}
+
+#cart-totals-footer {
+    flex-shrink: 0; /* Evita que el footer se encoja */
+    border-top: 1.5px solid #e5e7eb;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 -2px 12px 0 rgba(0,0,0,0.05);
+}
+
+/*  --- CART PREVIEW BAR MODERN STYLE --- */ 
+/*  Barra de previsualización del carrito */
+
+#cart-preview-bar {
+    background: linear-gradient(90deg, #2563eb 0%, #22c55e 100%);
+    box-shadow: 0 -4px 24px 0 #2563eb22, 0 1.5px 0 0 #e5e7eb;
+    border-radius: 18px 18px 0 0;
+    border-top: 2.5px solid #e5e7eb;
+    margin: 0 auto;
+    max-width: 480px;
+    left: 0; right: 0;
+    bottom: 0;
+    animation: fadeIn 0.5s cubic-bezier(.4,1.4,.6,1) 1;
+    transition: box-shadow 0.2s, background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7em 1.2em;
+}
+#cart-preview-bar .bi-cart3 {
+    font-size: 1.7rem;
+    color: #fff;
+    margin-right: 0.7em;
+}
+/* Contenedor para los datos alineados verticalmente */
+.cart-preview-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 0.5em;
+}
+#cart-preview-items {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.13rem;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 0.1em;
+}
+#cart-preview-items .cart-preview-label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #e0e7ef;
+    margin-left: 0.3em;
+}
+#cart-preview-total {
+    font-size: 1.18rem;
+    color: #fff;
+    font-weight: 700;
+    margin-left: 2.2em;
+    margin-top: 0.1em;
+    letter-spacing: 0.5px;
+}
+#cart-preview-total .cart-preview-bs {
+    font-size: 0.98rem;
+    font-weight: 500;
+    color: #e0e7ef;
+    margin-right: 0.3em;
+}
+#open-cart-preview {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#open-cart-preview i {
+    background: #fff;
+    color: #2563eb;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+    box-shadow: 0 2px 12px 0 #2563eb33;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+}
+#open-cart-preview:hover i {
+    background: #f0f4f8;
+    color: #22c55e;
+    box-shadow: 0 4px 24px 0 #22c55e33;
+    transform: scale(1.08);
+}
+
+#open-cart-preview:hover {
+    background: #f0f4f8;
+    color: #22c55e;
+    box-shadow: 0 4px 24px 0 #22c55e33;
+    transform: scale(1.04);
+}
+#open-cart-preview i {
+    font-size: 1.3rem;
+    margin-right: 0.3em;
+}
+
+/* --- Fin Layout del Carrito --- */
+
+/* --- MODERN UI IMPROVEMENTS --- */
+
+body {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #e0e7ef 100%);
+}
+
+#app {
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
+    background: rgba(255,255,255,0.85);
+    margin-top: 32px;
+    padding-bottom: 32px;
+    border: 1.5px solid #e5e7eb;
+}
+
+header {
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.06);
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(6px);
+    border-bottom: 1.5px solid #e5e7eb;
+}
+
+#search-bar {
+    transition: box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+    border-radius: 18px;
+    border: 1.5px solid #e5e7eb;
+    outline: none;
+    background: #f7fafc;
+}
+#search-bar:focus {
+    box-shadow: 0 2px 8px 0 #60a5fa44;
+    background: #fff;
+}
+
+#product-list > div {
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+    border-radius: 18px;
+    border: 1.5px solid #e5e7eb;
+    background: #fff;
+    position: relative;
+}
+#product-list > div:hover {
+    box-shadow: 0 6px 24px 0 #60a5fa22;
+    transform: translateY(-2px) scale(1.02);
+}
+
+.plus-button {
+    background: #22c55e;
+    color: #22c55e;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+    cursor: pointer;
+    outline: none;
+}
+.plus-button:hover {
+    background: #16a34a;
+    color: #fff;
+}
+.minus-button {
+    background: #ef4444;
+    color: #ef4444;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+    cursor: pointer;
+    outline: none;
+}
+.minus-button:hover {
+    background: #b91c1c;
+    color: #fff;
+}
+.minus-button.red {
+    background: #ef4444;
+    color: #fff;
+}
+.minus-button.red:hover {
+    background: #b91c1c;
+}
+
+#cart-button button {
+    box-shadow: 0 4px 16px 0 #2563eb33;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    position: relative;
+    border: 2px solid #e5e7eb;
+}
+#cart-button button:hover {
+    background: #2563eb;
+    transform: scale(0.07);
+}
+#cart-total-items {
+    box-shadow: 0 1px 4px 0 #ef444433;
+    border: 2px solid #fff;
+    font-weight: bold;
+}
+
+#cart-sidebar {
+    border-radius: 24px 0 0 24px;
+    box-shadow: -4px 0 24px 0 #2563eb22;
+    background: rgba(255,255,255,0.98);
+    backdrop-filter: blur(4px);
+    border-left: 2px solid #e5e7eb;
+    border-top: 1.5px solid #e5e7eb;
+    border-bottom: 1.5px solid #e5e7eb;
+}
+#cart-sidebar h2 {
+    color: #374151;
+}
+#close-cart {
+    background: #f3f4f6;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    border: 1.5px solid #e5e7eb;
+}
+#close-cart:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+/* Animaciones suaves */
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
+}
