@@ -1,5 +1,5 @@
 {
-  "dolar": 165.41,
+  "dolar": 171.84,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "A-C-P", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -111,13 +111,13 @@
   {"id": 109, "nombre": "Tomillo", "gramos": 30, "precio": "0,48", "categoria": "General"},
   {"id": 110, "nombre": "Toronjil", "gramos": 15, "precio": "0,45", "categoria": "General"},
   {"id": 111, "nombre": "Turrón", "gramos": 1, "precio": "0,48", "categoria": "General"},
-  {"id": 112, "nombre": "Vainilla Favorit-Mas", "gramos": 1, "precio": "0,88", "categoria": "General"},
+  {"id": 112, "nombre": "Vainilla Favorit-Mas", "gramos": 1, "precio": "1,9", "categoria": "General"},
   {"id": 113, "nombre": "Valeriana", "gramos": 10, "precio": "0,45", "categoria": "General"},
   {"id": 114, "nombre": "Ajonjolí", "gramos": 45, "precio": "0,54", "categoria": "General"},
   {"id": 115, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2", "categoria": "General"},
   {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,54", "categoria": "General"},
-   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 330, "categoria": "General"},
-   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 125, "categoria": "General"},
-   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 80, "categoria": "General"}
+   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 350, "categoria": "General"},
+   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 130, "categoria": "General"},
+   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 90, "categoria": "General"}
  ]
 }
