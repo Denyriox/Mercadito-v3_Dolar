@@ -116,9 +116,9 @@
   {"id": 114, "nombre": "Ajonjolí", "gramos": 45, "precio": "0,54", "categoria": "General"},
   {"id": 117, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2", "categoria": "General"},
   {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,54", "categoria": "General"},
-{"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,40", "categoria": "General"},
+  {"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,40", "categoria": "General"},
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 350, "categoria": "General"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 130, "categoria": "General"},
-   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 90, "categoria": "General"}
+   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 100, "categoria": "General"}
  ]
 }
