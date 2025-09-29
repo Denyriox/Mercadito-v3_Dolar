@@ -47,8 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         // limpiar y normalizar coma decimal a punto
                         const raw = prod.precio.trim().replace(/\s+/g, '').replace(/,/, '.');
                         const usd = parseFloat(raw);
-                        const bs = isNaN(usd) ? 0 : Number((usd * this.dolar).toFixed(2));
-                        prod.precio = bs;
+                        // Convertir a bolívares usando la tasa y luego redondear hacia arriba
+                        // al múltiplo de 5 más cercano (p.ej. 91 -> 95, 106 -> 110).
+                        let bs = 0;
+                        if (!isNaN(usd)) {
+                            const bsRaw = usd * this.dolar;
+                            bs = Math.ceil(bsRaw / 5) * 5;
+                        }
+                        prod.precio = Number(bs);
                         prod._precio_original = { value: usd, currency: 'USD' };
                         prod._precio_is_usd = true;
                     } else {
