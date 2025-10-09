@@ -87,11 +87,45 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         renderProducts(filter = '') {
             this.elements.productList.innerHTML = '';
-            const filterWords = this.normalizeText(filter).split(' ').filter(Boolean);
+            const filterNormalized = this.normalizeText(filter);
+            const filterWords = filterNormalized.split(' ').filter(Boolean);
+
+            // Filtrar por inclusión de todas las palabras (comportamiento existente)
             const filteredProducts = this.products.filter(p => {
                 const nombreNorm = this.normalizeText(p.nombre);
                 return filterWords.every(word => nombreNorm.includes(word));
             });
+
+            // Si hay filtro, priorizar productos cuyo nombre (o alguna palabra del nombre)
+            // comienza con lo que se está escribiendo. Después ordenar alfabéticamente.
+            if (filterNormalized) {
+                filteredProducts.sort((a, b) => {
+                    const aName = this.normalizeText(a.nombre);
+                    const bName = this.normalizeText(b.nombre);
+
+                    const startsWithFullA = aName.startsWith(filterNormalized);
+                    const startsWithFullB = bName.startsWith(filterNormalized);
+
+                    // Prefiere coincidencias que empiecen por la búsqueda completa
+                    if (startsWithFullA && !startsWithFullB) return -1;
+                    if (!startsWithFullA && startsWithFullB) return 1;
+
+                    // Si ninguna o ambas empiezan por la búsqueda completa, comprobar
+                    // si alguna palabra del nombre empieza por la primera palabra de la consulta
+                    const firstToken = filterWords[0] || '';
+                    const wordStartA = firstToken && aName.split(' ').some(w => w.startsWith(firstToken));
+                    const wordStartB = firstToken && bName.split(' ').some(w => w.startsWith(firstToken));
+                    if (wordStartA && !wordStartB) return -1;
+                    if (!wordStartA && wordStartB) return 1;
+
+                    // Fallback: ordenar alfabéticamente por nombre normalizado
+                    return aName.localeCompare(bName);
+                });
+            } else {
+                // Sin filtro, mantener orden alfabético (o el orden cargado)
+                filteredProducts.sort((a, b) => this.normalizeText(a.nombre).localeCompare(this.normalizeText(b.nombre)));
+            }
+
             filteredProducts.forEach(product => {
                 const productCard = this.createProductCard(product);
                 this.elements.productList.appendChild(productCard);
