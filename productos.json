@@ -118,13 +118,14 @@
   {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,53", "categoria": "General"},
   {"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,40", "categoria": "General"},
 
+  {"id": 119, "nombre": "Cubito de Taquito", "gramos": 50, "precio": 55, "categoria": "General"},
+  {"id": 120, "nombre": "null", "gramos": 50, "precio": "0,40", "categoria": "General"},
+  {"id": 121, "nombre": "null", "gramos": 50, "precio": "0,40", "categoria": "General"},
+  {"id": 122, "nombre": "null", "gramos": 50, "precio": "0,40", "categoria": "General"},
 
 
-
-
-  
-   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 370, "categoria": "General"},
-   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 140, "categoria": "General"},
-   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 90, "categoria": "General"}
+   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 380, "categoria": "General"},
+   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 150, "categoria": "General"},
+   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 100, "categoria": "General"}
  ]
 }
