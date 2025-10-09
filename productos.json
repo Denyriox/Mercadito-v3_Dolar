@@ -38,7 +38,7 @@
   {"id": 35, "nombre": "Comino-Molid.-Puro", "gramos": 20, "precio": "0,61", "categoria": "General"},
   {"id": 36, "nombre": "Confite Carnaval", "gramos": 100, "precio": "0,55", "categoria": "General"},
   {"id": 37, "nombre": "Confite Carnaval", "gramos": 50, "precio": "0,27", "categoria": "General"},
-  {"id": 38, "nombre": "Cubilo-Preparado.", "gramos": 50, "precio": "0,45", "categoria": "General"},
+  {"id": 38, "nombre": "Cubito-Preparado.", "gramos": 50, "precio": "0,45", "categoria": "General"},
   {"id": 39, "nombre": "Cúrcuma", "gramos": 40, "precio": "0,46", "categoria": "General"},
   {"id": 40, "nombre": "Curry", "gramos": 40, "precio": "0,46", "categoria": "General"},
   {"id": 41, "nombre": "Dandy y minidandy", "gramos": 50, "precio": "0,58", "categoria": "General"},
