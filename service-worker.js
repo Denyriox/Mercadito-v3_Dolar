@@ -8,7 +8,11 @@ const PRECACHE_URLS = [
   '/productos.json',
   '/manifest.webmanifest',
   '/icon-192.png',
-  '/icon-512.png.png'
+  '/icon-512.png.png',
+  // Bootstrap Icons local assets
+  '/assets/bootstrap-icons/font/bootstrap-icons.min.css',
+  '/assets/bootstrap-icons/font/fonts/bootstrap-icons.woff2',
+  '/assets/bootstrap-icons/font/fonts/bootstrap-icons.woff'
 ];
 
 self.addEventListener('install', (event) => {

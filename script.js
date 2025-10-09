@@ -27,7 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
         init() {
             this.loadData();
             this.attachEventListeners();
-            lucide.createIcons();
+            try {
+                if (window.lucide && lucide.createIcons) lucide.createIcons();
+            } catch (e) {
+                // If lucide isn't available, ignore - icons will fallback to bootstrap icons or SVGs
+                console.warn('lucide.createIcons() failed or lucide not available', e);
+            }
         },
         async loadData() {
             try {
