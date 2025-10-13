@@ -1,5 +1,5 @@
 {
-  "dolar": 193.30,
+  "dolar": 195.24,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "A-C-P", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -118,14 +118,19 @@
   {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,53", "categoria": "General"},
   {"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,40", "categoria": "General"},
 
-  {"id": 119, "nombre": "Cubito de Taquito", "gramos": 1, "precio": "0,28", "categoria": "General"},
-  {"id": 120, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
-  {"id": 121, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
-  {"id": 122, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 119, "nombre": "Cubito Maggi (Pollo y Carne)", "gramos": 1, "precio": "0,30", "categoria": "General"},
+  {"id": 120, "nombre": "Aceitunas Rellenas", "gramos": 250, "precio": "3,0", "categoria": "General"},
+  {"id": 121, "nombre": "Alcaparras", "gramos": 200, "precio": "1,85", "categoria": "General"},
+  {"id": 122, "nombre": "Cintillos  y Gorritos de Navidad", "gramos": 1, "precio": "2,0", "categoria": "General"},
+  {"id": 123, "nombre": "Dulces Abrillantados", "gramos": 1, "precio": "2,5", "categoria": "General"},
+  
+  {"id": 124, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 125, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 126, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
 
-   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 380, "categoria": "General"},
-   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 150, "categoria": "General"},
-   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 90, "categoria": "General"}
+   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2,0", "categoria": "General"},
+   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,75", "categoria": "General"},
+   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "General"}
  ]
 }
