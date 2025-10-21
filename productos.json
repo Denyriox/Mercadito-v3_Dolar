@@ -128,6 +128,21 @@
   {"id": 125, "nombre": "Gelatinas lam Blanca 2", "gramos": 0, "precio": "0,50", "categoria": "General"},
   {"id": 126, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
+  {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,63", "categoria": "General"},
+  {"id": 128, "nombre": "Maicena", "gramos": 200, "precio": "0,72", "categoria": "General"},
+  {"id": 129, "nombre": "Paprik ahumado", "gramos": 30, "precio": "0,72", "categoria": "General"},
+  {"id": 130, "nombre": "Paprik Piknte", "gramos": 35, "precio": "0,65", "categoria": "General"},
+
+  {"id": 131, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 132, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 133, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 134, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 135, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 136, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 137, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 139, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": 400, "categoria": "General"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 150, "categoria": "General"},
