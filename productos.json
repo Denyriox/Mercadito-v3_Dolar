@@ -125,7 +125,7 @@
   {"id": 123, "nombre": "Dulces Abrillantados", "gramos": 1, "precio": "2,5", "categoria": "General"},
   
   {"id": 124, "nombre": "Gelatina lam.Roja", "gramos": 0, "precio": "0,62", "categoria": "General"},
-  {"id": 125, "nombre": "Gelatinas lam Blanca 2", "gramos": 0, "precio": "0,50", "categoria": "General"},
+  {"id": 125, "nombre": "Gelatinas lam Blanca 2", "gramos": 0, "precio": "0,52", "categoria": "General"},
   {"id": 126, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
   {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,63", "categoria": "General"},
