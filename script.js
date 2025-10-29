@@ -53,11 +53,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         const raw = prod.precio.trim().replace(/\s+/g, '').replace(/,/, '.');
                         const usd = parseFloat(raw);
                         // Convertir a bolívares usando la tasa y luego redondear hacia arriba
-                        // al múltiplo de 5 más cercano (p.ej. 91 -> 95, 106 -> 110).
+                        // al múltiplo de 10 (decena) (p.ej. 91 -> 100, 106 -> 110).
                         let bs = 0;
                         if (!isNaN(usd)) {
                             const bsRaw = usd * this.dolar;
-                            bs = Math.ceil(bsRaw / 5) * 5;
+                            bs = Math.ceil(bsRaw / 10) * 10;
                         }
                         prod.precio = Number(bs);
                         prod._precio_original = { value: usd, currency: 'USD' };
