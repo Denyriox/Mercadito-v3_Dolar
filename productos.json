@@ -1,5 +1,5 @@
 {
-  "dolar": 212.48,
+  "dolar": 219.87,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "A-C-P", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -49,7 +49,7 @@
   {"id": 46, "nombre": "Gelatina c/sab.", "gramos": 100, "precio": "0,85", "categoria": "General"},
   {"id": 47, "nombre": "Gelatina Blanca Lámina", "gramos": 1, "precio": "0,29", "categoria": "General"},
   {"id": 48, "nombre": "Gelatina s/sab.", "gramos": 30, "precio": "0,68", "categoria": "General"},
-  {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,53", "categoria": "General"},
+  {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,60", "categoria": "General"},
   {"id": 50, "nombre": "Gotas-chocolate.", "gramos": 100, "precio": "1,18", "categoria": "General"},
   {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,59", "categoria": "General"},
   {"id": 52, "nombre": "Granola-Miel", "gramos": 50, "precio": "0,65", "categoria": "General"},
@@ -70,7 +70,7 @@
   {"id": 68, "nombre": "Maíz Cotufa", "gramos": 200, "precio": "0,58", "categoria": "General"},
   {"id": 69, "nombre": "Malagueta - Bairrun", "gramos": 0, "precio": "0,39", "categoria": "General"},
   {"id": 70, "nombre": "Malojillo", "gramos": 0, "precio": "0,36", "categoria": "General"},
-  {"id": 71, "nombre": "Maní (Todos)", "gramos": 100, "precio": "0,91", "categoria": "General"},
+  {"id": 71, "nombre": "Maní (Todos)", "gramos": 100, "precio": "0,95", "categoria": "General"},
   {"id": 72, "nombre": "Manzanilla", "gramos": 30, "precio": "0,79", "categoria": "General"},
   {"id": 73, "nombre": "Mejorana", "gramos": 30, "precio": "0,42", "categoria": "General"},
   {"id": 74, "nombre": "Menta", "gramos": 30, "precio": "0,48", "categoria": "General"},
@@ -128,12 +128,12 @@
   {"id": 125, "nombre": "2 Gelatinas Blanca lam ", "gramos": 2, "precio": "0,52", "categoria": "General"},
   {"id": 126, "nombre": "2 Gelatinas Rojas lam", "gramos": 2, "precio": "1,15", "categoria": "General"},
 
-  {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,63", "categoria": "General"},
+  {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,36", "categoria": "General"},
   {"id": 128, "nombre": "Maicena", "gramos": 200, "precio": "0,72", "categoria": "General"},
   {"id": 129, "nombre": "Paprik ahumado", "gramos": 30, "precio": "0,72", "categoria": "General"},
   {"id": 130, "nombre": "Paprik Piknte", "gramos": 35, "precio": "0,65", "categoria": "General"},
 
-  {"id": 131, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 131, "nombre": "Mani con Chocolate", "gramos": 50, "precio": "0,65", "categoria": "General"},
   {"id": 132, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 133, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 134, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
