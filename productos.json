@@ -1,5 +1,5 @@
 {
-  "dolar": 223.64,
+  "dolar": 227.55,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "A-C-P", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -114,7 +114,7 @@
   {"id": 112, "nombre": "Vainilla Favorit-Mas", "gramos": 1, "precio": "1,5", "categoria": "General"},
   {"id": 113, "nombre": "Valeriana", "gramos": 10, "precio": "0,45", "categoria": "General"},
   {"id": 114, "nombre": "Ajonjolí", "gramos": 45, "precio": "0,50", "categoria": "General"},
-  {"id": 117, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2", "categoria": "General"},
+  {"id": 117, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2,23", "categoria": "General"},
   {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,53", "categoria": "General"},
   {"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,40", "categoria": "General"},
 
@@ -137,7 +137,7 @@
   {"id": 132, "nombre": "Navidad Sprinkles", "gramos": 25, "precio": "0,89", "categoria": "General"},
   
 {"id": 134, "nombre": "Navidad Sprinkles dorados", "gramos": 25, "precio": "1,40", "categoria": "General"},
-  {"id": 135, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 135, "nombre": "sal Marina", "gramos": 100, "precio": "0,24", "categoria": "General"},
   {"id": 136, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 137, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
