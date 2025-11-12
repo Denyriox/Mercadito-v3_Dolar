@@ -91,7 +91,7 @@
   {"id": 89, "nombre": "Pimienta Negra-Molida.", "gramos": 40, "precio": "1,17", "categoria": "General"},
   {"id": 90, "nombre": "Pimienta Negra-Molida-Pura", "gramos": 20, "precio": "1,09", "categoria": "General"},
   {"id": 91, "nombre": "Ping-Pong", "gramos": 50, "precio": "0,96", "categoria": "General"},
-  {"id": 92, "nombre": "Pistacho", "gramos": 40, "precio": "1,80", "categoria": "General"},
+  {"id": 92, "nombre": "Pistacho", "gramos": 40, "precio": "1,78", "categoria": "General"},
   {"id": 93, "nombre": "Polvo-Hornear", "gramos": 50, "precio": "0,49", "categoria": "General"},
   {"id": 94, "nombre": "Pudin-Preparado.", "gramos": 100, "precio": "0,84", "categoria": "General"},
   {"id": 95, "nombre": "Quinoa", "gramos": 100, "precio": "1,13", "categoria": "General"},
