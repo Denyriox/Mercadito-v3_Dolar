@@ -67,7 +67,7 @@
   {"id": 65, "nombre": "Lluvia chocolate.", "gramos": 50, "precio": "0,34", "categoria": "General"},
   {"id": 66, "nombre": "Lluvia choc.-colores", "gramos": 100, "precio": "0,69", "categoria": "General"},
   {"id": 67, "nombre": "Maíz BBQ Nat/Pik", "gramos": 50, "precio": "0,65", "categoria": "General"},
-  {"id": 68, "nombre": "Maíz Cotufa", "gramos": 200, "precio": "0,56 "categoria": "General"},
+  {"id": 68, "nombre": "Maíz Cotufa", "gramos": 200, "precio": "0,56", "categoria": "General"},
   {"id": 69, "nombre": "Malagueta - Bairrun", "gramos": 0, "precio": "0,39", "categoria": "General"},
   {"id": 70, "nombre": "Malojillo", "gramos": 0, "precio": "0,36", "categoria": "General"},
   {"id": 71, "nombre": "Maní (Todos)", "gramos": 100, "precio": "0,95", "categoria": "General"},
