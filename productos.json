@@ -135,9 +135,9 @@
 
   {"id": 131, "nombre": "Mani con Chocolate", "gramos": 50, "precio": "0,65", "categoria": "General"},
   {"id": 132, "nombre": "Navidad Sprinkles", "gramos": 25, "precio": "0,89", "categoria": "General"},
-  
-{"id": 134, "nombre": "Navidad Sprinkles dorados", "gramos": 25, "precio": "1,40", "categoria": "General"},
-  {"id": 135, "nombre": "sal Marina", "gramos": 100, "precio": "0,24", "categoria": "General"},
+  {"id": 133, "nombre": "Navidad Sprinkles Dorados", "gramos": 25, "precio": "1,40", "categoria": "General"},
+  {"id": 134, "nombre": "Sal Marina", "gramos": 100, "precio": "0,24", "categoria": "General"},
+  {"id": 135, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 136, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 137, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},

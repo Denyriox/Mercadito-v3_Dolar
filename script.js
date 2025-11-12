@@ -36,11 +36,36 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         async loadData() {
             try {
-                const response = await fetch('productos.json');
-                const data = await response.json();
-                this.dolar = data.dolar;
+                // Cargar productos
+                const respProd = await fetch('productos.json');
+                const data = await respProd.json();
+
+                // Intentar cargar dolar.json (opcional)
+                let externalDolar = 0;
+                try {
+                    const respD = await fetch('dolar.json');
+                    if (respD.ok) {
+                        const jsonD = await respD.json();
+                        externalDolar = Number(jsonD && jsonD.dolar) || 0;
+                    }
+                } catch (e) {
+                    // Si no existe o falla, seguir usando el dólar de productos.json
+                    externalDolar = 0;
+                }
+
+                const prodDolar = Number(data.dolar) || 0;
+                // Usar el valor más alto entre productos.json y dolar.json
+                this.dolar = Math.max(prodDolar, externalDolar);
+
                 // Ordenar productos por nombre
-                let products = data.productos.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                let products = Array.isArray(data.productos) ? data.productos.slice() : [];
+                products.sort((a, b) => String(a.nombre).localeCompare(String(b.nombre)));
+
+                // Filtrar productos cuyo nombre sea la cadena 'null' (ignorando mayúsculas y espacios)
+                products = products.filter(p => {
+                    const name = (p && p.nombre) ? String(p.nombre).trim().toLowerCase() : '';
+                    return name !== 'null' && name !== '';
+                });
 
                 // Normalizar precios:
                 // - Si el precio viene como string en el JSON => se interpreta como USD y se convierte a Bs usando la tasa `dolar`.
