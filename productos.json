@@ -32,7 +32,7 @@
   {"id": 29, "nombre": "Cilantro-Semillas.", "gramos": 30, "precio": "0,42", "categoria": "General"},
   {"id": 30, "nombre": "Ciruelas-Pasas", "gramos": 100, "precio": "1,33", "categoria": "General"},
   {"id": 31, "nombre": "Coco-R", "gramos": 40, "precio": "0,98", "categoria": "General"},
-  {"id": 32, "nombre": "Color", "gramos": 50, "precio": "0,51", "categoria": "General"},
+  {"id": 32, "nombre": "Color", "gramos": 50, "precio": "0,70", "categoria": "General"},
   {"id": 33, "nombre": "Comino-Ent.", "gramos": 30, "precio": "0,47", "categoria": "General"},
   {"id": 34, "nombre": "Comino-Molid.", "gramos": 40, "precio": "0,62", "categoria": "General"},
   {"id": 35, "nombre": "Comino-Molid.-Puro", "gramos": 20, "precio": "0,61", "categoria": "General"},
