@@ -110,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.products = products;
                 this.elements.dolarValue.textContent = this.dolar.toFixed(2);
                 this.loadCart();
+                // Cargar estado de modo oscuro persistido (si existe)
+                if (typeof this.loadDarkModeState === 'function') this.loadDarkModeState();
                 this.renderProducts();
             } catch (error) {
                 console.error('Error loading products:', error);
@@ -422,11 +424,63 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error saving history', e);
             }
         },
+        // Comprueba si el pedido procesado cumple el trigger secreto
+        checkSecretDarkMode(entry) {
+            try {
+                if (!entry || !Array.isArray(entry.items) || entry.items.length === 0) return;
+                // Identificar productos "Kamil" en la lista de productos cargados
+                const kamilProducts = (this.products || []).filter(p => {
+                    try { return String(p.nombre).toLowerCase().startsWith('kamil'); } catch (e) { return false; }
+                }).map(p => p.id);
+                if (kamilProducts.length === 0) return; // no hay productos Kamil definidos
+
+                // Mapear items del entry por id => cantidad
+                const map = {};
+                entry.items.forEach(it => { map[Number(it.id)] = Number(it.cantidad) || 0; });
+
+                // Condición: cada producto Kamil debe estar presente con al menos 6 unidades
+                const all6 = kamilProducts.every(id => (map[id] || 0) >= 6);
+                if (!all6) return;
+
+                // Si cumple, alternar el modo oscuro (toggle)
+                const currently = document.body.classList.contains('dark-mode');
+                const next = !currently;
+                this.applyDarkMode(next);
+                console.info('Secret dark-mode trigger activated:', next ? 'ENABLED' : 'DISABLED');
+            } catch (e) {
+                console.error('Error checking secret dark mode trigger', e);
+            }
+        },
+
+        // Aplica o quita la clase dark-mode y persiste el estado
+        applyDarkMode(enabled) {
+            try {
+                document.body.classList.toggle('dark-mode', !!enabled);
+                localStorage.setItem('mercadito-dark-mode', !!enabled ? '1' : '0');
+            } catch (e) {
+                console.error('Error applying dark mode', e);
+            }
+        },
+
+        // Cargar estado persistido del modo oscuro
+        loadDarkModeState() {
+            try {
+                const raw = localStorage.getItem('mercadito-dark-mode');
+                const enabled = raw === '1';
+                document.body.classList.toggle('dark-mode', !!enabled);
+            } catch (e) {
+                console.error('Error loading dark mode state', e);
+            }
+        },
         pushHistoryEntry(entry) {
             const history = this.getHistory();
             history.unshift(entry); // newest first
             if (history.length > 200) history.length = 200;
             this.saveHistory(history);
+            // Revisar si el pedido recién procesado cumple el trigger secreto
+            if (typeof this.checkSecretDarkMode === 'function') {
+                try { this.checkSecretDarkMode(entry); } catch (e) { console.error(e); }
+            }
         },
         saveCart() {
             try {

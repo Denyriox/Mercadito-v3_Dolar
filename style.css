@@ -338,3 +338,58 @@ header {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: none; }
 }
+
+/* --- Dark Mode (secret) --- */
+body.dark-mode {
+    background: linear-gradient(135deg, #0f1724 0%, #071020 100%);
+    color: #e6eef8;
+}
+body.dark-mode #app {
+    background: rgba(14,21,30,0.9);
+    border-color: rgba(255,255,255,0.04);
+    box-shadow: 0 10px 40px rgba(2,6,23,0.6);
+}
+body.dark-mode header {
+    background: rgba(10,14,20,0.85);
+    border-bottom-color: rgba(255,255,255,0.03);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+body.dark-mode .bg-white { background: transparent; }
+body.dark-mode .text-gray-500, body.dark-mode .text-gray-700 { color: #9fb0c8; }
+body.dark-mode .rounded-lg, body.dark-mode #product-list > div {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-color: rgba(255,255,255,0.04);
+    box-shadow: 0 6px 20px rgba(2,6,23,0.6);
+}
+body.dark-mode .bi { color: #cfe8ff; }
+body.dark-mode button, body.dark-mode .plus-button, body.dark-mode .minus-button {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+body.dark-mode #cart-sidebar { background: rgba(8,12,18,0.95); border-color: rgba(255,255,255,0.03); }
+body.dark-mode #cart-preview-bar { background: linear-gradient(90deg, #134e7a 0%, #0f5a3f 100%); }
+
+/* Small helper for toasts or console-like notice (kept hidden; optional) */
+.dark-toast { position: fixed; right: 1rem; bottom: 5.5rem; z-index: 60; background: rgba(0,0,0,0.6); color: #e6eef8; padding: 0.6rem 1rem; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.6); }
+
+/* Ajustes específicos para la barra de búsqueda en modo oscuro */
+body.dark-mode #search-bar {
+    background: rgba(255,255,255,0.03);
+    color: #e6eef8;
+    border-color: rgba(255,255,255,0.06);
+    box-shadow: none;
+}
+body.dark-mode #search-bar:focus {
+    background: rgba(255,255,255,0.04);
+    box-shadow: 0 2px 8px rgba(96,165,250,0.08);
+    outline: none;
+}
+body.dark-mode #search-bar::placeholder {
+    color: rgba(230,238,248,0.56);
+}
+/* Asegurar contraste de inputs y bordes en modo oscuro */
+body.dark-mode input, body.dark-mode textarea {
+    color: #e6eef8;
+}
+body.dark-mode .border, body.dark-mode .rounded-full {
+    border-color: rgba(255,255,255,0.04) !important;
+}
