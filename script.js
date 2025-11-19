@@ -405,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
             this.toggleCart(false);
         },
 
-        // Historial de pagos
+        // Historial de Pedidos
         getHistory() {
             try {
                 const raw = localStorage.getItem('mercadito-history');
