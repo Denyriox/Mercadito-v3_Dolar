@@ -43,7 +43,7 @@
   {"id": 40, "nombre": "Curry", "gramos": 40, "precio": "0,46", "categoria": "General"},
   {"id": 41, "nombre": "Dandy mini-micro dandy", "gramos": 50, "precio": "0,61", "categoria": "General"},
   {"id": 42, "nombre": "Eneldo Semilla.", "gramos": 30, "precio": "0,42", "categoria": "General"},
-  {"id": 43, "nombre": "Fruta Confitada", "gramos": 100, "precio": "0,66", "categoria": "General"},
+  {"id": 43, "nombre": "Fruta Confitada", "gramos": 100, "precio": "0,68", "categoria": "General"},
   {"id": 44, "nombre": "Flor de Jamaica", "gramos": 40, "precio": "0,70", "categoria": "General"},
   {"id": 45, "nombre": "Fruto Seco Surtido Delux", "gramos": 50, "precio": "1,0", "categoria": "General"},
   {"id": 46, "nombre": "Gelatina con sabor.", "gramos": 100, "precio": "0,85", "categoria": "General"},
