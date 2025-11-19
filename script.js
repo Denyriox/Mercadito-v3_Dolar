@@ -495,14 +495,14 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="absolute inset-0 bg-black opacity-50"></div>
             <div class="relative bg-white w-11/12 max-w-3xl rounded-2xl shadow-2xl p-4 max-h-[80vh] overflow-auto">
                 <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-xl font-bold">Historial - Pagos procesados</h3>
+                    <h3 class="text-xl font-bold">Historial - Pedidos procesados</h3>
                     <div class="flex items-center gap-2">
                         <button id="clear-history" class="text-sm text-red-500">Limpiar</button>
                         <button id="close-history" class="text-sm text-gray-600">Cerrar</button>
                     </div>
                 </div>
                 <div id="history-list">
-                ${history.length === 0 ? '<div class="text-sm text-gray-500">No hay pagos procesados.</div>' : ''}
+                ${history.length === 0 ? '<div class="text-sm text-gray-500">No hay pedidos procesados.</div>' : ''}
                 </div>
             </div>
         `;
@@ -575,7 +575,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="relative bg-white p-8 rounded-3xl shadow-2xl border-4 border-green-400 text-center max-w-xs z-10 flex flex-col items-center animate-fade-in">
                             <div class="mb-4 text-2xl font-extrabold text-green-700 flex items-center gap-2">
                                 <i class='bi bi-clock-history text-green-500' style="font-size:2rem;line-height:1;display:flex;align-items:center;justify-content:center;"></i>
-                                ¡Recuerda procesar el pago!
+                                ¡Recuerda procesar el pedido!
                             </div>
                             <button id="close-reminder" class="w-full bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full py-3 text-lg font-semibold shadow-md flex items-center justify-center gap-2 mt-4">
                                 Cerrar
