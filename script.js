@@ -509,7 +509,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.appendChild(modal);
         document.getElementById('close-history').onclick = () => modal.remove();
         document.getElementById('clear-history').onclick = () => {
-            if (confirm('¿Borrar todo el historial de pagos?')) {
+            if (confirm('¿Borrar todo el historial de pedidos?')) {
                 app.saveHistory([]);
                 app.renderHistoryList();
             }
@@ -523,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const history = app.getHistory();
         container.innerHTML = '';
         if (history.length === 0) {
-            container.innerHTML = '<div class="text-sm text-gray-500">No hay pagos procesados.</div>';
+            container.innerHTML = '<div class="text-sm text-gray-500">No hay pedidos procesados.</div>';
             return;
         }
         history.forEach(entry => {
