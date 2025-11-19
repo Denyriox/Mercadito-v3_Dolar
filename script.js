@@ -116,8 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         renderProducts(filter = '') {
+            // Respect quick-tab override when no explicit filter is provided
+            const quickTab = (window && window.mercaditoApp && window.mercaditoApp.activeQuickTab) ? window.mercaditoApp.activeQuickTab : null;
+            const effectiveFilter = (filter && String(filter).trim()) || (quickTab === 'kamil' ? 'Kamil' : '');
             this.elements.productList.innerHTML = '';
-            const filterNormalized = this.normalizeText(filter);
+            const filterNormalized = this.normalizeText(effectiveFilter);
             const filterWords = filterNormalized.split(' ').filter(Boolean);
 
             // Filtrar por inclusión de todas las palabras (comportamiento existente)

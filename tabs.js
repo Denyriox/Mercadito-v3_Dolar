@@ -20,17 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tab === 'adela') {
             tabAdela.classList.add('ring-2', 'ring-pink-300', 'scale-105', 'shadow-lg');
             tabAdela.setAttribute('aria-pressed', 'true');
-            // Mostrar todos los productos
+            // Marcar pestaña activa y mostrar todos los productos
+            app.activeQuickTab = 'adela';
             searchBar.value = '';
-            app.renderProducts('');
             if (app.elements && app.elements.resetSearch) app.elements.resetSearch.classList.add('hidden');
+            app.renderProducts('');
         } else if (tab === 'kamil') {
             tabKamil.classList.add('ring-2', 'ring-blue-300', 'scale-105', 'shadow-lg');
             tabKamil.setAttribute('aria-pressed', 'true');
-            // Filtrar por "Kamil"
+            // Marcar pestaña activa y filtrar por "Kamil"
+            app.activeQuickTab = 'kamil';
             searchBar.value = '';
-            app.renderProducts('Kamil');
             if (app.elements && app.elements.resetSearch) app.elements.resetSearch.classList.add('hidden');
+            app.renderProducts('');
         }
     }
 
@@ -40,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Si el usuario escribe en la barra de búsqueda, desactivar las pestañas
     searchBar.addEventListener('input', () => {
         clearActiveStyles();
+        // quitar la pestaña activa para que la búsqueda manual tenga prioridad
+        try { app.activeQuickTab = null; } catch (e) { /* noop */ }
     });
 
     // Inicializar con Adela activa (muestra todos los productos)
