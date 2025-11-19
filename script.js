@@ -626,6 +626,8 @@ document.addEventListener('DOMContentLoaded', () => {
         resetInactivityTimer();
     };
 
+    // Hacer accesible la instancia para scripts externos (p.ej. tabs.js)
+    window.mercaditoApp = app;
     app.init();
     // Iniciar temporizador si hay productos en el carrito al cargar
     resetInactivityTimer();
