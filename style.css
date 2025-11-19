@@ -393,3 +393,43 @@ body.dark-mode input, body.dark-mode textarea {
 body.dark-mode .border, body.dark-mode .rounded-full {
     border-color: rgba(255,255,255,0.04) !important;
 }
+
+/* Correcciones específicas para el carrito en modo oscuro */
+body.dark-mode #cart-sidebar {
+    background: linear-gradient(180deg, rgba(6,10,16,0.98), rgba(10,14,20,0.98));
+    color: #e6eef8;
+    border-left-color: rgba(255,255,255,0.03);
+}
+body.dark-mode #cart-sidebar h2 { color: #f1f8ff; }
+body.dark-mode #cart-items {
+    background: transparent;
+    color: #cfe8ff;
+}
+body.dark-mode #cart-items .text-xs, body.dark-mode #cart-items .text-sm {
+    color: #9fb0c8;
+}
+body.dark-mode #cart-items .font-semibold, body.dark-mode #cart-items .font-bold { color: #e6eef8; }
+body.dark-mode #cart-items .flex-1 { background: transparent; }
+
+/* Totales/footer del carrito */
+body.dark-mode #cart-totals-footer {
+    background: linear-gradient(180deg, rgba(8,12,18,0.95), rgba(6,8,12,0.95));
+    border-top-color: rgba(255,255,255,0.03);
+    color: #e6eef8;
+    box-shadow: 0 -4px 24px rgba(2,6,23,0.6);
+}
+body.dark-mode #cart-totals-footer .font-bold { color: #e6eef8; }
+body.dark-mode #cart-totals-footer button { box-shadow: 0 6px 20px rgba(2,6,23,0.6); }
+
+/* Asegurar que elementos con clase bg-white dentro del carrito no queden visibles como blanco */
+body.dark-mode #cart-sidebar .bg-white, body.dark-mode #cart-sidebar [class*="bg-white"] {
+    background: transparent !important;
+}
+
+/* Ajustes para badges / contadores dentro del carrito */
+body.dark-mode #cart-total-items, body.dark-mode .cart-preview-count {
+    background: #ef4444; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Pequeña transición para que el cambio no sea abrupto */
+body.dark-mode, body.dark-mode * { transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; }
