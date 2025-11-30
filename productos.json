@@ -1,5 +1,5 @@
 {
-  "dolar": 244.65,
+  "dolar": 247.30,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil)", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -75,7 +75,7 @@
   {"id": 73, "nombre": "Mejorana", "gramos": 30, "precio": "0,42", "categoria": "General"},
   {"id": 74, "nombre": "Menta", "gramos": 30, "precio": "0,48", "categoria": "General"},
   {"id": 75, "nombre": "Merey", "gramos": 50, "precio": "1,33", "categoria": "General"},
-  {"id": 76, "nombre": "Miramar", "gramos": 50, "precio": "0,96", "categoria": "General"},
+  {"id": 76, "nombre": "Miramar", "gramos": 550, "precio": "0,83", "categoria": "General"},
   {"id": 77, "nombre": "Moringa", "gramos": 20, "precio": "0,36", "categoria": "General"},
   {"id": 78, "nombre": "Naranja Confitada.", "gramos": 40, "precio": "0,66", "categoria": "General"},
   {"id": 79, "nombre": "Nueces Peladas.", "gramos": 50, "precio": "1,25", "categoria": "General"},
@@ -138,7 +138,7 @@
   {"id": 133, "nombre": "Navidad Sprinkles Dorados", "gramos": 25, "precio": "1,40", "categoria": "General"},
   {"id": 134, "nombre": "Sal Marina", "gramos": 100, "precio": "0,24", "categoria": "General"},
   {"id": 135, "nombre": "Semillas de Girasol", "gramos": 35, "precio": "0,66", "categoria": "General"},
-  {"id": 136, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+  {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "0,0", "categoria": "General"},
   {"id": 137, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
   {"id": 139, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
