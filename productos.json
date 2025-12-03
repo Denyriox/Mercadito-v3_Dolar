@@ -1,5 +1,5 @@
 {
-  "dolar": 247.30,
+  "dolar": 249.19,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil)", "gramos": 45, "precio": "0,51", "categoria": "General"},
