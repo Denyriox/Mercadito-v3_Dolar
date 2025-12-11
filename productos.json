@@ -1,5 +1,5 @@
 {
-  "dolar": 251.88,
+  "dolar": 262.10,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil)", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -25,7 +25,7 @@
   {"id": 22, "nombre": "Cebolla-Granulado.", "gramos": 45, "precio": "0,69", "categoria": "General"},
   {"id": 23, "nombre": "Cebolla-Hojuela.", "gramos": 40, "precio": "0,60", "categoria": "General"},
   {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,65", "categoria": "General"},
-  {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,21", "categoria": "General"},
+  {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,25", "categoria": "General"},
   {"id": 26, "nombre": "Chocolate-Barra (s)", "gramos": 50, "precio": "0,68", "categoria": "General"},
   {"id": 115, "nombre": "Chocolate-Barra (s)", "gramos": 85, "precio": "1,16", "categoria": "General"},
   {"id": 28, "nombre": "Clavitos-Dulce", "gramos": 20, "precio": "0,85", "categoria": "General"},
