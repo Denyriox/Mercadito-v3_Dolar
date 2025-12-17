@@ -1,5 +1,5 @@
 {
-  "dolar": 265.06,
+  "dolar": 276.57,
   "productos": [
   {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,63", "categoria": "General"},
   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil)", "gramos": 45, "precio": "0,51", "categoria": "General"},
@@ -47,7 +47,7 @@
   {"id": 44, "nombre": "Flor de Jamaica", "gramos": 40, "precio": "0,65", "categoria": "General"},
   {"id": 45, "nombre": "Fruto Seco Surtido Delux", "gramos": 50, "precio": "1,14", "categoria": "General"},
   {"id": 46, "nombre": "Gelatina con sabor.", "gramos": 100, "precio": "0,75", "categoria": "General"},
-  {"id": 47, "nombre": "Gelatina Blanca Lámina (Sin sabor)", "gramos": 1, "precio": "0,29", "categoria": "General"},
+  {"id": 47, "nombre": "Gelatina Blanca Lámina (Sin sabor)", "gramos": 1, "precio": "0,30", "categoria": "General"},
   {"id": 48, "nombre": "Gelatina sin sabor", "gramos": 30, "precio": "0,65", "categoria": "General"},
   {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,70", "categoria": "General"},
   {"id": 50, "nombre": "Gotas-chocolate.", "gramos": 100, "precio": "1,30", "categoria": "General"},
@@ -124,9 +124,9 @@
   {"id": 122, "nombre": "Cintillos y Gorritos de Navidad", "gramos": 1, "precio": "2,0", "categoria": "General"},
   {"id": 123, "nombre": "Dulces Abrillantados", "gramos": 1, "precio": "2,5", "categoria": "General"},
   
-  {"id": 124, "nombre": "Gelatina Roja lamina.Roja (Sin sabor)", "gramos": 1, "precio": "0,58", "categoria": "General"},
+  {"id": 124, "nombre": "Gelatina Roja lamina.Roja (Sin sabor)", "gramos": 1, "precio": "0,40", "categoria": "General"},
   {"id": 125, "nombre": "2 Gelatinas Blanca lamina (Sin sabor)", "gramos": 2, "precio": "0,49", "categoria": "General"},
-  {"id": 126, "nombre": "2 Gelatinas Rojas lamina (Sin sabor)", "gramos": 2, "precio": "1,07", "categoria": "General"},
+  {"id": 126, "nombre": "2 Gelatinas Rojas lamina (Sin sabor)", "gramos": 2, "precio": "0,75", "categoria": "General"},
 
   {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,36", "categoria": "General"},
   {"id": 128, "nombre": "Maicena", "gramos": 200, "precio": "0,65", "categoria": "General"},
