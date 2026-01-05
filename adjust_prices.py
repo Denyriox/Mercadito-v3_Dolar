@@ -127,33 +127,140 @@ def parse_amount(text):
         return False, val
 
 
+def parse_price(value):
+    """Convierte distintos formatos de `precio` a float y devuelve (float, original_type).
+
+    original_type puede ser:
+    - 'number' : si el valor original era int/float
+    - 'str_comma' : si era una cadena usando coma decimal ("0,63")
+    - 'str_dot' : si era una cadena usando punto decimal ("1.83")
+    - 'str_plain' : cadena sin separador decimal ("1")
+    Lanza ValueError para entradas no convertibles.
+    """
+    if isinstance(value, (int, float)):
+        return float(value), 'number'
+    if not isinstance(value, str):
+        raise ValueError('Precio en formato desconocido')
+    s = value.strip()
+    if s == '':
+        raise ValueError('Precio vacío')
+
+    # Normalizar espacios
+    s = s.replace(' ', '')
+    # Si contiene ambos separadores, decidir cuál es el decimal
+    if ',' in s and '.' in s:
+        # si la última coma viene después del último punto, tratamos la coma como decimal
+        if s.rfind(',') > s.rfind('.'):
+            s = s.replace('.', '').replace(',', '.')
+            typ = 'str_comma'
+        else:
+            s = s.replace(',', '')
+            typ = 'str_dot'
+    elif ',' in s:
+        s = s.replace(',', '.')
+        typ = 'str_comma'
+    elif '.' in s:
+        typ = 'str_dot'
+    else:
+        typ = 'str_plain'
+
+    val = float(s)
+    return val, typ
+
+
+def format_price(original_type, value_float):
+    """Formatea el precio resultante según el tipo original.
+
+    - Para tipos 'str_*' devuelve una cadena con coma o punto según correspond
+    - Para 'number' devuelve int si entero, o float con 2 decimales
+    """
+    # Redondear a 2 decimales
+    r = round(float(value_float), 2)
+    # Si es prácticamente entero, usar entero
+    if abs(r - int(r)) < 1e-9:
+        if original_type == 'number':
+            return int(r)
+        # para strings devolver sin decimales
+        s = str(int(r))
+        if original_type.startswith('str'):
+            if original_type == 'str_comma':
+                return s
+            return s
+
+    # Formatear con hasta 2 decimales, pero eliminar 0 final si aplica
+    s = f"{r:.2f}"
+    if s.endswith('00'):
+        s = s.split('.')[0]
+    elif s.endswith('0'):
+        s = s[:-1]
+
+    if original_type == 'str_comma':
+        s = s.replace('.', ',')
+        return s
+    if original_type.startswith('str'):
+        return s
+    # number
+    # devolver como int si entero, sino float (con 2 decimales)
+    if s.find('.') == -1:
+        return int(float(s))
+    return float(s)
+
+
 def apply_change(products, increase, is_percent, amount):
     """Aplica el cambio y devuelve (n_changed, samples).
     Modifica in-place la lista de productos.
     """
+    # Esta función ya no modifica la lista: la modificación real se hace después
     n = 0
     samples = []
-    factor = None
     for p in products:
         if 'precio' not in p:
             continue
-        old = p['precio']
+        try:
+            old_val, old_type = parse_price(p['precio'])
+        except Exception:
+            continue
         if is_percent:
-            change = old * (amount / 100.0)
+            change = old_val * (amount / 100.0)
         else:
             change = amount
         if not increase:
             change = -change
-        new_price = old + change
-        # redondear a 2 decimales, pero si es entero, dejar int
-        new_price = round(new_price, 2)
-        if abs(new_price - int(new_price)) < 1e-9:
-            new_price = int(new_price)
-        p['precio'] = new_price
+        new_price = round(old_val + change, 2)
+        formatted_old = format_price(old_type, old_val)
+        formatted_new = format_price(old_type, new_price)
         n += 1
         if len(samples) < 5:
-            samples.append((p.get('id'), p.get('nombre'), old, new_price))
+            samples.append((p.get('id'), p.get('nombre'), formatted_old, formatted_new))
     return n, samples
+
+
+def compute_preview_and_changes(products, increase, is_percent, amount, max_samples=10):
+    """Devuelve (n_changed, samples, changes_map) donde changes_map es {idx: formatted_value}"""
+    n = 0
+    samples = []
+    changes = {}
+    for idx, p in enumerate(products):
+        if 'precio' not in p:
+            continue
+        try:
+            old_val, old_type = parse_price(p['precio'])
+        except Exception:
+            continue
+        if is_percent:
+            change = old_val * (amount / 100.0)
+        else:
+            change = amount
+        if not increase:
+            change = -change
+        new_price = round(old_val + change, 2)
+        formatted_old = format_price(old_type, old_val)
+        formatted_new = format_price(old_type, new_price)
+        changes[idx] = formatted_new
+        n += 1
+        if len(samples) < max_samples:
+            samples.append((p.get('id'), p.get('nombre'), formatted_old, formatted_new))
+    return n, samples, changes
 
 
 def main():
@@ -197,10 +304,22 @@ def main():
         except Exception as e:
             print('Error al leer la cantidad:', e)
 
-    # Mostrar resumen y pedir confirmación
+    # Mostrar resumen y previsualización
     typ = 'porcentaje' if is_percent else 'monto absoluto'
     sign = 'aumentar' if increase else 'disminuir'
-    print(f'Vas a {sign} todos los precios en {amount} {typ}.')
+    print(f'Vas a {sign} todos los precios en {amount} ({typ}).')
+
+    n_preview, preview_samples, changes_map = compute_preview_and_changes(productos, increase, is_percent, amount, max_samples=10)
+    if n_preview == 0:
+        print('No se encontraron productos con campo `precio` válido para modificar.')
+        input('Presione Enter para cerrar...')
+        return
+
+    print(f'Previsualización ({min(len(preview_samples), 10)} ejemplos de {n_preview} productos que serán actualizados):')
+    for s in preview_samples:
+        pid, nombre, old, new = s
+        print(f'  id={pid} | {nombre} : {old} -> {new}')
+
     ok = input('Confirma y guarda los cambios? (s/n): ').strip().lower()
     if ok not in ('s', 'si', 'y', 'yes'):
         print('Operación cancelada. No se realizaron cambios.')
@@ -214,8 +333,10 @@ def main():
     except Exception as e:
         print('Advertencia: no se pudo crear backup:', e)
 
-    # Aplicar cambios
-    n_changed, samples = apply_change(productos, increase, is_percent, amount)
+    # Aplicar cambios preparados
+    for idx, formatted in changes_map.items():
+        productos[idx]['precio'] = formatted
+
     try:
         write_json(JSON_PATH, data)
     except Exception as e:
@@ -229,8 +350,8 @@ def main():
         input('Presione Enter para cerrar...')
         sys.exit(1)
 
-    print(f'Actualizados {n_changed} productos. Ejemplos:')
-    for s in samples:
+    print(f'Actualizados {n_preview} productos. Ejemplos:')
+    for s in preview_samples[:5]:
         pid, nombre, old, new = s
         print(f'  id={pid} | {nombre} : {old} -> {new}')
 
