@@ -108,7 +108,7 @@
    {"id": 105, "nombre": "Estevia", "gramos": 20, "precio": "0,53", "categoria": "General"},
    {"id": 106, "nombre": "Té Negro", "gramos": 20, "precio": "0,55", "categoria": "General"},
    {"id": 107, "nombre": "Té Verde", "gramos": 20, "precio": "0,53", "categoria": "General"},
-   {"id": 108, "nombre": "Tilo", "gramos": 20, "precio": "0,82"y, "categoria": "General"},
+   {"id": 108, "nombre": "Tilo", "gramos": 20, "precio": "0,82", "categoria": "General"},
    {"id": 109, "nombre": "Tomillo", "gramos": 30, "precio": "0,58", "categoria": "General"},
    {"id": 110, "nombre": "Toronjil", "gramos": 15, "precio": "0,48", "categoria": "General"},
    {"id": 111, "nombre": "Turrón", "gramos": 1, "precio": "0,50", "categoria": "General"},
