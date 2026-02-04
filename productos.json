@@ -16,7 +16,7 @@
    {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,5", "categoria": "General"},
    {"id": 13, "nombre": "Anis-Dulce", "gramos": 20, "precio": "0,51", "categoria": "General"},
    {"id": 14, "nombre": "Anis-Estrellado.", "gramos": 30, "precio": "0,88", "categoria": "General"},
-   {"id": 15, "nombre": "Avena", "gramos": 200, "precio": "0,65", "categoria": "General"},
+   {"id": 15, "nombre": "Avena", "gramos": 200, "precio": "0,75", "categoria": "General"},
    {"id": 16, "nombre": "Bicarbonato", "gramos": 50, "precio": "0,90", "categoria": "General"},
    {"id": 17, "nombre": "Bolero", "gramos": 50, "precio": "0,88", "categoria": "General"},
    {"id": 18, "nombre": "Cacao", "gramos": 45, "precio": "1,23", "categoria": "General"},
