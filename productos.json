@@ -1,5 +1,5 @@
 {
-  "dolar": 375.08
+  "dolar": 378.45
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,91", "categoria": "General"},
@@ -142,7 +142,7 @@
    {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "General"},
-   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 280, "categoria": "General"},
-   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 180, "categoria": "General"}
+   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 290, "categoria": "General"},
+   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 190, "categoria": "General"}
  ]
 }
