@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 card.innerHTML = `
                     <div class="flex flex-row items-baseline min-w-0 mb-2">
-                        <span class="font-bold text-lg truncate">${product.nombre}</span>
+                        <span class="font-bold text-lg product-title-wrap">${product.nombre}</span>
                         <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                     </div>
                     <div class="flex flex-row items-center justify-between w-full">
