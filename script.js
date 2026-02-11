@@ -407,25 +407,36 @@ document.addEventListener('DOMContentLoaded', () => {
         createCartItem(product, quantity) {
             const item = document.createElement('div');
             item.className = 'flex items-center justify-between gap-2 mb-2';
-            item.innerHTML = `
-                <div class="flex-1 min-w-0">
-                    <div>
-                        <span class="font-semibold">${product.nombre}</span>
-                        <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
+                // Calcular subtotal igual que en updateCartView
+                let subtotal = 0;
+                let detalle = '';
+                if (product.precio2 && quantity >= 2) {
+                    const pares = Math.floor(quantity / 2);
+                    const resto = quantity % 2;
+                    subtotal = (product.precio2 * pares) + (product.precio * resto);
+                    detalle = `<span class='text-xs text-blue-700 ml-1'>(x2 Bs. ${product.precio2.toFixed(2)}${pares > 0 ? ` × ${pares}` : ''}${resto > 0 ? ` + x1 Bs. ${product.precio.toFixed(2)} × ${resto}` : ''})</span>`;
+                } else {
+                    subtotal = product.precio * quantity;
+                }
+                item.innerHTML = `
+                    <div class="flex-1 min-w-0">
+                        <div>
+                            <span class="font-semibold">${product.nombre}</span>
+                            <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
+                        </div>
+                        <div class="text-xs text-gray-500">Bs. ${product.precio.toFixed(2)} c/u${this.getOriginalPriceLabel(product)}${detalle}</div>
                     </div>
-                    <div class="text-xs text-gray-500">Bs. ${product.precio.toFixed(2)} c/u${this.getOriginalPriceLabel(product)}</div>
-                </div>
-                <span class="mx-2 font-bold whitespace-nowrap">Bs. ${(product.precio * quantity).toFixed(2)}</span>
-                <div class="flex items-center space-x-1">
-                    <button class="restar bg-red-500 hover:bg-red-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-red-400" data-id="${product.id}" aria-label="Restar">
-                        <i class="bi bi-dash-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
-                    </button>
-                    <span class="mx-1">${quantity}</span>
-                    <button class="sumar bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" data-id="${product.id}" aria-label="Sumar">
-                        <i class="bi bi-plus-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
-                    </button>
-                </div>
-            `;
+                    <span class="mx-2 font-bold whitespace-nowrap">Bs. ${subtotal.toFixed(2)}</span>
+                    <div class="flex items-center space-x-1">
+                        <button class="restar bg-red-500 hover:bg-red-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-red-400" data-id="${product.id}" aria-label="Restar">
+                            <i class="bi bi-dash-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
+                        </button>
+                        <span class="mx-1">${quantity}</span>
+                        <button class="sumar bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" data-id="${product.id}" aria-label="Sumar">
+                            <i class="bi bi-plus-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin-auto;"></i>
+                        </button>
+                    </div>
+                `;
             return item;
         },
         toggleCart(open) {
