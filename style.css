@@ -1,3 +1,19 @@
+/* Scroll horizontal para barra de pestañas */
+#quick-tabs {
+    overflow-x: auto;
+    max-width: 100%;
+    white-space: nowrap;
+    padding-bottom: 2px;
+}
+
+/* Ocultar scrollbar en navegadores modernos */
+.scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE y Edge */
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
 .minus-button.red {
     background-color: #ef4444;
     color: white;
