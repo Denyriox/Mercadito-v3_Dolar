@@ -204,29 +204,31 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         createProductCard(product) {
             const card = document.createElement('div');
-            card.className = 'bg-white p-4 rounded-lg shadow flex items-center justify-between gap-2';
+            card.className = 'bg-white p-4 rounded-lg shadow flex flex-col gap-2';
             const quantity = this.cart[product.id] || 0;
                 let precio2Html = '';
                 if (product.precio2) {
                     precio2Html = `<div class=\"mt-1 text-xs text-blue-600 font-semibold\">x2</div><div class=\"text-xs font-bold text-blue-700\">Bs. ${product.precio2.toFixed(2)}${product._precio2_original ? ` <span class='text-xs text-gray-500'>($${product._precio2_original.value.toFixed(2)})</span>` : ''}</div>`;
                 }
                 card.innerHTML = `
-                    <div class=\"flex-1 min-w-0\">
-                        <span class=\"font-bold\">${product.nombre}</span>
-                        <span class=\"text-xs text-gray-500 ml-2\">${product.gramos}g</span>
+                    <div class="flex flex-row items-baseline min-w-0 mb-2">
+                        <span class="font-bold text-lg truncate">${product.nombre}</span>
+                        <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                     </div>
-                    <div style=\"display:flex;flex-direction:column;align-items:flex-start;\">
-                        <span class=\"mx-2 font-bold whitespace-nowrap\">Bs. ${product.precio.toFixed(2)}${this.getOriginalPriceLabel(product)}</span>
-                        ${precio2Html ? `<div>${precio2Html}</div>` : ''}
-                    </div>
-                    <div class=\"flex items-center space-x-1\">
-                        <button class=\"minus-button bg-red-500 hover:bg-red-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-red-400\" data-id=\"${product.id}\" aria-label=\"Restar\">
-                            <i class=\"bi bi-dash-lg\" style=\"font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin-auto;\"></i>
-                        </button>
-                        <span class=\"mx-1 w-8 text-center quantity\">${quantity}</span>
-                        <button class=\"plus-button bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400\" data-id=\"${product.id}\" aria-label=\"Sumar\">
-                            <i class=\"bi bi-plus-lg\" style=\"font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin-auto;\"></i>
-                        </button>
+                    <div class="flex flex-row items-center justify-between w-full">
+                        <div class="flex flex-col items-start">
+                            <span class="mx-2 font-bold whitespace-nowrap">Bs. ${product.precio.toFixed(2)}${this.getOriginalPriceLabel(product)}</span>
+                            ${precio2Html ? `<div>${precio2Html}</div>` : ''}
+                        </div>
+                        <div class="flex items-center space-x-1">
+                            <button class="minus-button bg-red-500 hover:bg-red-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-red-400" data-id="${product.id}" aria-label="Restar">
+                                <i class="bi bi-dash-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
+                            </button>
+                            <span class="mx-1 w-8 text-center quantity">${quantity}</span>
+                            <button class="plus-button bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" data-id="${product.id}" aria-label="Sumar">
+                                <i class="bi bi-plus-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin-auto;"></i>
+                            </button>
+                        </div>
                     </div>
                 `;
             return card;
