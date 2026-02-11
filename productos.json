@@ -102,7 +102,7 @@
    {"id": 99, "nombre": "Salsa para Pasta", "gramos": 50, "precio": "0,48", "categoria": "General"},
    {"id": 100, "nombre": "Salvia", "gramos": 20, "precio": "0,45", "categoria": "General"},
    {"id": 101, "nombre": "Sazonatodo", "gramos": 40, "precio": "0,53", "categoria": "General"},
-   {"id": 102, "nombre": "Semilla Auyama", "gramos": 35, "precio": "0,73", "categoria": "General"},
+   {"id": 102, "nombre": "Semilla Auyama", "gramos": 35, "precio": "0,73", "categoria": "Frutos Secos"},
    {"id": 103, "nombre": "Semilla Mostaza", "gramos": 30, "precio": "0,51", "categoria": "General"},
    {"id": 104, "nombre": "Sen", "gramos": 20, "precio": "0,39", "categoria": "General"},
    {"id": 105, "nombre": "Estevia", "gramos": 20, "precio": "0,53", "categoria": "General"},
