@@ -12,7 +12,7 @@
    {"id": 8, "nombre": "Ajo-Mix (Sabroseador)", "gramos": 40, "precio": "0,58", "categoria": "General"},
    {"id": 9, "nombre": "Albahaca", "gramos": 25, "precio": "0,51", "categoria": "General"},
    {"id": 10, "nombre": "Almendras-Fileteada.", "gramos": 40, "precio": "1,50", "categoria": "General"},
-   {"id": 11, "nombre": "Almendras-Marron", "gramos": 50, "precio": "1,3", "categoria": "General"},
+   {"id": 11, "nombre": "Almendras-Marron", "gramos": 50, "precio": "1,3", "categoria": "Frutos Secos"},
    {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,5", "categoria": "General"},
    {"id": 13, "nombre": "Anis-Dulce", "gramos": 20, "precio": "0,51", "categoria": "General"},
    {"id": 14, "nombre": "Anis-Estrellado.", "gramos": 30, "precio": "0,88", "categoria": "General"},
@@ -142,7 +142,8 @@
    {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
-   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 290, "categoria": "General"},
-   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 190, "categoria": "General"}
+   {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,75", "categoria": "Kamil"},
+   {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
+   {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"}
  ]
 }
