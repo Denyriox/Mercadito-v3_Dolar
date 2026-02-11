@@ -74,19 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 products = products.map(p => {
                     const prod = Object.assign({}, p);
                     if (typeof prod.precio === 'string') {
-                        // limpiar y normalizar coma decimal a punto
-                        const raw = prod.precio.trim().replace(/\s+/g, '').replace(/,/, '.');
-                        const usd = parseFloat(raw);
-                        // Convertir a bolívares usando la tasa y luego redondear hacia arriba
-                        // al múltiplo de 10 (decena) (p.ej. 91 -> 100, 106 -> 110).
-                        let bs = 0;
-                        if (!isNaN(usd)) {
-                            const bsRaw = usd * this.dolar;
-                            bs = Math.ceil(bsRaw / 10) * 10;
+                        // Detectar si hay precio especial por 2 unidades
+                        const match = prod.precio.match(/^([0-9,.]+)(?:\s*\(([^)]+)\))?$/);
+                        if (match) {
+                            // Precio unitario
+                            const raw1 = match[1].trim().replace(/,/, '.');
+                            const usd1 = parseFloat(raw1);
+                            let bs1 = 0;
+                            if (!isNaN(usd1)) {
+                                const bsRaw1 = usd1 * this.dolar;
+                                bs1 = Math.ceil(bsRaw1 / 10) * 10;
+                            }
+                            prod.precio = Number(bs1);
+                            prod._precio_original = { value: usd1, currency: 'USD' };
+                            prod._precio_is_usd = true;
+                            // Precio por 2 unidades
+                            if (match[2]) {
+                                const raw2 = match[2].trim().replace(/,/, '.');
+                                const usd2 = parseFloat(raw2);
+                                let bs2 = 0;
+                                if (!isNaN(usd2)) {
+                                    const bsRaw2 = usd2 * this.dolar;
+                                    bs2 = Math.ceil(bsRaw2 / 10) * 10;
+                                }
+                                prod.precio2 = Number(bs2);
+                                prod._precio2_original = { value: usd2, currency: 'USD' };
+                            }
+                        } else {
+                            // Normalizar precio simple
+                            const raw = prod.precio.trim().replace(/,/, '.');
+                            const usd = parseFloat(raw);
+                            let bs = 0;
+                            if (!isNaN(usd)) {
+                                const bsRaw = usd * this.dolar;
+                                bs = Math.ceil(bsRaw / 10) * 10;
+                            }
+                            prod.precio = Number(bs);
+                            prod._precio_original = { value: usd, currency: 'USD' };
+                            prod._precio_is_usd = true;
                         }
-                        prod.precio = Number(bs);
-                        prod._precio_original = { value: usd, currency: 'USD' };
-                        prod._precio_is_usd = true;
                     } else {
                         // asegurar que sea número
                         const val = Number(prod.precio);
@@ -180,10 +206,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'bg-white p-4 rounded-lg shadow flex items-center justify-between gap-2';
             const quantity = this.cart[product.id] || 0;
+            let precio2Html = '';
+            if (product.precio2) {
+                precio2Html = `<div class="mt-1 text-xs text-blue-600 font-semibold">Precio por 2 unidades</div><div class="text-xs font-bold text-blue-700">Bs. ${product.precio2.toFixed(2)}${product._precio2_original ? ` <span class='text-xs text-gray-500'>($${product._precio2_original.value.toFixed(2)})</span>` : ''}</div>`;
+            }
             card.innerHTML = `
                 <div class="flex-1 min-w-0">
                     <span class="font-bold">${product.nombre}</span>
                     <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
+                    <div class="mt-1 text-xs text-gray-700">${precio2Html}</div>
                 </div>
                 <span class="mx-2 font-bold whitespace-nowrap">Bs. ${product.precio.toFixed(2)}${this.getOriginalPriceLabel(product)}</span>
                 <div class="flex items-center space-x-1">
@@ -192,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </button>
                     <span class="mx-1 w-8 text-center quantity">${quantity}</span>
                     <button class="plus-button bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" data-id="${product.id}" aria-label="Sumar">
-                        <i class="bi bi-plus-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
+                        <i class="bi bi-plus-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin-auto;"></i>
                     </button>
                 </div>
             `;
@@ -306,7 +337,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cartProductList.forEach(({ product, quantity }) => {
                 totalItems += quantity;
-                totalBs += product.precio * quantity;
+                let subtotal = 0;
+                if (product.precio2 && quantity >= 2) {
+                    // Usar precio especial por cada par de unidades
+                    const pares = Math.floor(quantity / 2);
+                    const resto = quantity % 2;
+                    subtotal = (product.precio2 * pares) + (product.precio * resto);
+                } else {
+                    subtotal = product.precio * quantity;
+                }
+                totalBs += subtotal;
                 productCount++;
                 const cartItem = this.createCartItem(product, quantity);
                 this.elements.cartItems.appendChild(cartItem);
