@@ -141,7 +141,7 @@
    {"id": 139, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
    {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
-   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "General"},
+   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": 290, "categoria": "General"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": 190, "categoria": "General"}
  ]

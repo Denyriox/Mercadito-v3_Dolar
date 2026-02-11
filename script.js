@@ -117,19 +117,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error loading products:', error);
             }
         },
-        renderProducts(filter = '') {
+        renderProducts(filter = '', categoria = null) {
             // Respect quick-tab override when no explicit filter is provided
+
             const quickTab = (window && window.mercaditoApp && window.mercaditoApp.activeQuickTab) ? window.mercaditoApp.activeQuickTab : null;
-            const effectiveFilter = (filter && String(filter).trim()) || (quickTab === 'kamil' ? 'Kamil' : '');
+            let effectiveCategoria = categoria || quickTab || null;
+            let effectiveFilter = (filter && String(filter).trim()) || '';
             this.elements.productList.innerHTML = '';
             const filterNormalized = this.normalizeText(effectiveFilter);
             const filterWords = filterNormalized.split(' ').filter(Boolean);
 
+            // Filtrar por categoría si está definida
+            let filteredProducts = this.products;
+            if (effectiveCategoria) {
+                filteredProducts = filteredProducts.filter(p => p.categoria === effectiveCategoria);
+            }
+
             // Filtrar por inclusión de todas las palabras (comportamiento existente)
-            const filteredProducts = this.products.filter(p => {
-                const nombreNorm = this.normalizeText(p.nombre);
-                return filterWords.every(word => nombreNorm.includes(word));
-            });
+            if (filterNormalized) {
+                filteredProducts = filteredProducts.filter(p => {
+                    const nombreNorm = this.normalizeText(p.nombre);
+                    return filterWords.every(word => nombreNorm.includes(word));
+                });
+            }
 
             // Si hay filtro, priorizar productos cuyo nombre (o alguna palabra del nombre)
             // comienza con lo que se está escribiendo. Después ordenar alfabéticamente.
