@@ -26,7 +26,7 @@
    {"id": 22, "nombre": "Cebolla-Granulada.", "gramos": 45, "precio": "0,66", "categoria": "General"},
    {"id": 23, "nombre": "Cebolla-Hojuela.", "gramos": 40, "precio": "0,66", "categoria": "General"},
    {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,63", "categoria": "General"},
-   {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,33", "categoria": "Chocolates"},
+   {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,38", "categoria": "Chocolates"},
    {"id": 26, "nombre": "Chocolate-Barra (s)", "gramos": 50, "precio": "0,67", "categoria": "Chocolates"},
    {"id": 115, "nombre": "Chocolate-Barra (s)", "gramos": 85, "precio": "1,19", "categoria": "Chocolates"},
    {"id": 28, "nombre": "Clavitos-Dulce", "gramos": 20, "precio": "0,90", "categoria": "General"},
