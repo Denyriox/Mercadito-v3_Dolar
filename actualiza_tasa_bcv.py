@@ -27,8 +27,8 @@ def actualizar_dolar_json(tasa, ruta_json):
     try:
         with open(ruta_json, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        # Formatear la tasa con 2 decimales y actualizar la clave 'dolar'
-        data['dolar'] = round(float(tasa), 2)
+        # Guardar la tasa con todos los decimales originales
+        data['dolar'] = float(tasa)
         with open(ruta_json, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         print(f"Tasa actualizada en {ruta_json}: {data['dolar']}")
