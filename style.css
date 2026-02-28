@@ -1,9 +1,46 @@
+.tab-btn[data-tab="Adela"] {
+    background: #ffe6e6;
+    color: #c62828;
+}
+.tab-btn[data-tab="Adela"].active,
+.tab-btn[data-tab="Adela"]:hover {
+    background: #c62828;
+    color: #fff;
+}
+.tab-btn[data-tab="Kamil"] {
+    background: #e6f7ff;
+    color: #1565c0;
+}
+.tab-btn[data-tab="Kamil"].active,
+.tab-btn[data-tab="Kamil"]:hover {
+    background: #1565c0;
+    color: #fff;
+}
+.tarjeta-pago-movil.dark .tab-btn[data-tab="Adela"] {
+    background: #3a2323;
+    color: #ff8a80;
+}
+.tarjeta-pago-movil.dark .tab-btn[data-tab="Adela"].active,
+.tarjeta-pago-movil.dark .tab-btn[data-tab="Adela"]:hover {
+    background: #c62828;
+    color: #fff;
+}
+.tarjeta-pago-movil.dark .tab-btn[data-tab="Kamil"] {
+    background: #233a4a;
+    color: #90caf9;
+}
+.tarjeta-pago-movil.dark .tab-btn[data-tab="Kamil"].active,
+.tarjeta-pago-movil.dark .tab-btn[data-tab="Kamil"]:hover {
+    background: #1565c0;
+    color: #fff;
+}
 /* Tarjeta de pago móvil */
 .tarjeta-pago-movil {
     position: fixed;
     left: 32px;
     bottom: 80px;
     background: #fff;
+    color: #222;
     border-radius: 18px;
     box-shadow: 0 4px 32px rgba(0,0,0,0.18);
     padding: 32px 28px 28px 28px;

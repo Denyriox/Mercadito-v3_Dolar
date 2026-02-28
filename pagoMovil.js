@@ -15,14 +15,15 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
     obtenerDatosPagoMovil().then(datos => {
         const tarjeta = document.createElement('div');
         tarjeta.className = 'tarjeta-pago-movil';
-        // Detectar modo oscuro
-        const darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (darkMode) tarjeta.classList.add('dark');
+        // Detectar modo oscuro correctamente
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            tarjeta.classList.add('dark');
+        }
         tarjeta.innerHTML = `
             <div class="tarjeta-header">
                 <div class="tabs">
-                    <button class="tab-btn" data-tab="Adela">Adela</button>
-                    <button class="tab-btn" data-tab="Kamil">Kamil</button>
+                    <button class="tab-btn${tab === 'Adela' ? ' active' : ''}" data-tab="Adela">Adela</button>
+                    <button class="tab-btn${tab === 'Kamil' ? ' active' : ''}" data-tab="Kamil">Kamil</button>
                 </div>
                 <button class="cerrar-tarjeta">&times;</button>
             </div>
