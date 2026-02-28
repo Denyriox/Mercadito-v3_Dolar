@@ -129,10 +129,15 @@
                         <span id="cart-total-usd">0.00</span>
                     </div>
                     <div id="cart-change-info" class="flex flex-col text-xs text-gray-700 mt-1"></div>
-                    <button id="checkout-button" class="w-full bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full py-3 text-lg font-semibold shadow-md flex items-center justify-center gap-2">
-                        <i class="bi bi-credit-card-2-front text-lg"></i>
-                        Procesar Pedido
-                    </button>
+                    <div class="flex items-center gap-2">
+                        <button id="btn-qr-pago-movil" class="btn-qr-pago-movil flex items-center justify-center rounded-full bg-gray-200 hover:bg-green-500 transition-colors p-2" title="Pago Móvil" style="min-width:40px;min-height:40px;">
+                            <i class="bi bi-qr-code" style="font-size:1.5em;"></i>
+                        </button>
+                        <button id="checkout-button" class="bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full py-3 px-4 text-lg font-semibold shadow-md flex items-center justify-center gap-2" style="min-width:0;">
+                            <i class="bi bi-credit-card-2-front text-lg"></i>
+                            <span style="white-space:nowrap;">Procesar</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
