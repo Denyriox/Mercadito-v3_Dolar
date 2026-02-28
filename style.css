@@ -80,6 +80,7 @@
 .tabs {
     display: flex;
     gap: 12px;
+    padding-left: 48px;
 }
 .tab-btn {
     background: #e5e7eb;
