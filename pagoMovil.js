@@ -21,7 +21,7 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
             tarjeta.style.color = '#fff';
         } else {
             tarjeta.style.background = '#fff';
-            tarjeta.style.color = '#222';
+            tarjeta.style.color = '#fff';
         }
         // Obtener totales del carrito
         let totalBs = 0, totalUsd = 0;
