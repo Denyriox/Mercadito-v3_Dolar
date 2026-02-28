@@ -27,8 +27,15 @@ def actualizar_dolar_json(tasa, ruta_json):
     try:
         with open(ruta_json, 'r', encoding='utf-8') as f:
             data = json.load(f)
-        # Guardar la tasa con todos los decimales originales
-        data['dolar'] = float(tasa)
+        # Guardar la tasa con solo 2 decimales, truncando sin redondear
+        tasa_str = str(tasa)
+        if '.' in tasa_str:
+            parte_entera, parte_decimal = tasa_str.split('.')
+            parte_decimal = parte_decimal[:2].ljust(2, '0')
+            tasa_trunc = float(f"{parte_entera}.{parte_decimal}")
+        else:
+            tasa_trunc = float(tasa_str)
+        data['dolar'] = tasa_trunc
         with open(ruta_json, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
         print(f"Tasa actualizada en {ruta_json}: {data['dolar']}")
