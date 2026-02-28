@@ -15,9 +15,13 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
     obtenerDatosPagoMovil().then(datos => {
         const tarjeta = document.createElement('div');
         tarjeta.className = 'tarjeta-pago-movil';
-        // Detectar modo oscuro correctamente
+        // Detectar modo oscuro correctamente y aplicar fondo
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            tarjeta.classList.add('dark');
+            tarjeta.style.background = '#23272f';
+            tarjeta.style.color = '#fff';
+        } else {
+            tarjeta.style.background = '#fff';
+            tarjeta.style.color = '#222';
         }
         // Obtener totales del carrito
         let totalBs = 0, totalUsd = 0;
