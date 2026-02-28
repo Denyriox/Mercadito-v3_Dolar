@@ -1,59 +1,91 @@
 /* Tarjeta de pago móvil */
 .tarjeta-pago-movil {
     position: fixed;
-    left: 16px;
-    bottom: 64px;
+    left: 32px;
+    bottom: 80px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
-    padding: 20px 24px 16px 24px;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    padding: 32px 40px 28px 40px;
     z-index: 1100;
-    min-width: 260px;
-    max-width: 320px;
+    min-width: 340px;
+    max-width: 480px;
+    min-height: 320px;
     animation: fadeIn .2s;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.tarjeta-pago-movil.dark {
+    background: #23272f;
+    color: #e5e7eb;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.40);
 }
 .tarjeta-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 .tabs {
     display: flex;
-    gap: 8px;
+    gap: 12px;
 }
 .tab-btn {
     background: #e5e7eb;
     border: none;
-    border-radius: 6px;
-    padding: 4px 12px;
+    border-radius: 8px;
+    padding: 8px 20px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background 0.2s, color 0.2s;
 }
 .tab-btn:hover {
     background: #4CAF50;
     color: #fff;
 }
+.tarjeta-pago-movil.dark .tab-btn {
+    background: #2c313a;
+    color: #e5e7eb;
+}
+.tarjeta-pago-movil.dark .tab-btn:hover {
+    background: #388e3c;
+    color: #fff;
+}
 .cerrar-tarjeta {
     background: none;
     border: none;
-    font-size: 1.3em;
+    font-size: 1.7em;
     color: #888;
     cursor: pointer;
+    transition: color 0.2s;
+}
+.tarjeta-pago-movil.dark .cerrar-tarjeta {
+    color: #e5e7eb;
 }
 .tarjeta-body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.datos-pago {
-    margin-bottom: 12px;
-    text-align: left;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
     width: 100%;
 }
+.datos-pago {
+    margin-bottom: 0;
+    text-align: left;
+    width: 220px;
+    font-size: 1.15em;
+    line-height: 2.1em;
+}
+.tarjeta-pago-movil.dark .datos-pago {
+    color: #e5e7eb;
+}
 .qr-pago img {
-    border-radius: 8px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    max-width: 200px;
+    background: #fff;
 }
 /* Botón pago móvil */
 .btn-pago-movil {
