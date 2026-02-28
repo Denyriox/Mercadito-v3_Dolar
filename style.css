@@ -98,7 +98,12 @@
     cursor: pointer;
     font-weight: 600;
     font-size: 1.1em;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s, box-shadow 0.18s, transform 0.12s;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.04);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
 }
 .tab-btn:hover {
     background: #4CAF50;
@@ -136,6 +141,7 @@
     width: 100%;
     font-size: 1.15em;
     line-height: 2.1em;
+    color: #222;
 }
 .tarjeta-pago-movil.dark .datos-pago {
     color: #e5e7eb;
@@ -652,3 +658,19 @@ body.dark-mode #cart-total-items, body.dark-mode .cart-preview-count {
 
 /* Pequeña transición para que el cambio no sea abrupto */
 body.dark-mode, body.dark-mode * { transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; }
+
+/* Texto de los totales debajo del QR */
+.qr-pago .total-carrito-info {
+    margin-top:8px;
+    text-align:center;
+    font-size:1.1em;
+    background:#f6f6f6;
+    padding:8px 16px;
+    border-radius:12px;
+    box-shadow:0 1px 4px #0001;
+    color: #222;
+}
+.tarjeta-pago-movil.dark .qr-pago .total-carrito-info {
+    background: #23272f;
+    color: #e5e7eb;
+}

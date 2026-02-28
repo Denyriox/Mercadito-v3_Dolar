@@ -17,10 +17,10 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
         tarjeta.className = 'tarjeta-pago-movil';
         // Detectar modo oscuro correctamente y aplicar fondo
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            tarjeta.style.background = '#23272f';
+            tarjeta.style.background = '#fff';
             tarjeta.style.color = '#fff';
         } else {
-            tarjeta.style.background = '#fff';
+            tarjeta.style.background = '#23272f';
             tarjeta.style.color = '#fff';
         }
         // Obtener totales del carrito
