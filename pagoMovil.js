@@ -65,4 +65,13 @@ function agregarBotonPagoMovil() {
 }
 
 // Inicializar botón al cargar
-window.addEventListener('DOMContentLoaded', agregarBotonPagoMovil);
+window.addEventListener('DOMContentLoaded', () => {
+    // Elimina el botón flotante si existe
+    const btnFlotante = document.querySelector('.btn-pago-movil');
+    if (btnFlotante) btnFlotante.remove();
+    // Asigna evento al botón QR en pestañas
+    const btnQr = document.getElementById('btn-qr-pago-movil');
+    if (btnQr) {
+        btnQr.onclick = () => mostrarTarjetaPagoMovil();
+    }
+});
