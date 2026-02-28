@@ -52,24 +52,8 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
     });
 }
 
-function agregarBotonPagoMovil() {
-    const btn = document.createElement('button');
-    btn.className = 'btn-pago-movil';
-    btn.innerHTML = '<i class="bi bi-credit-card"></i> Pago Móvil';
-    btn.style.position = 'fixed';
-    btn.style.left = '16px';
-    btn.style.bottom = '16px';
-    btn.style.zIndex = '1000';
-    btn.onclick = () => mostrarTarjetaPagoMovil();
-    document.body.appendChild(btn);
-}
-
-// Inicializar botón al cargar
+// Inicializar botón QR del carrito al cargar
 window.addEventListener('DOMContentLoaded', () => {
-    // Elimina el botón flotante si existe
-    const btnFlotante = document.querySelector('.btn-pago-movil');
-    if (btnFlotante) btnFlotante.remove();
-    // Asigna evento al botón QR en el carrito
     const btnQr = document.getElementById('btn-qr-pago-movil');
     if (btnQr) {
         btnQr.onclick = () => mostrarTarjetaPagoMovil();
