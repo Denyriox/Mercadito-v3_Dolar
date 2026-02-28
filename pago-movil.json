@@ -1,0 +1,12 @@
+{
+  "Adela": {
+    "banco": "Banco de Venezuela",
+    "cedula": "12345678",
+    "telefono": "04141234567"
+  },
+  "Kamil": {
+    "banco": "Banesco",
+    "cedula": "87654321",
+    "telefono": "04147654321"
+  }
+}
