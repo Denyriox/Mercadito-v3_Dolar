@@ -44,12 +44,40 @@ def actualizar_dolar_json(tasa, ruta_json):
 
 def git_commit_and_sync(ruta_json):
     try:
+        # 1. Obtener cambios remotos primero
+        subprocess.run(["git", "fetch"], check=True)
+        
+        # 2. Hacer pull permitiendo merge automático (estrategia: preferir remotos para otros archivos)
+        # Esto evita que falle si solo hay cambios en archivos que NO son dolar.json
+        result = subprocess.run(
+            ["git", "pull", "--no-rebase", "origin", "main"],
+            capture_output=True,
+            text=True
+        )
+        
+        # Si hay conflicto en dolar.json, resolver preferiendo el valor LOCAL (tu tasa actual)
+        if "CONFLICT" in result.stdout or "CONFLICT" in result.stderr:
+            print("Detectado conflicto, resolviendo...")
+            # Forzar uso de nuestra versión para dolar.json
+            subprocess.run(["git", "checkout", "--ours", ruta_json], check=True)
+            subprocess.run(["git", "add", ruta_json], check=True)
+            subprocess.run(["git", "commit", "-m", "Resuelve conflicto: mantiene tasa local"], check=True)
+        
+        # 3. Ahora sí, commit de nuestros cambios
         subprocess.run(["git", "add", ruta_json], check=True)
-        subprocess.run(["git", "commit", "-m", "Actualiza tasa del dolar"], check=True)
-        subprocess.run(["git", "push"], check=True)
-        print("git commit y push ejecutados correctamente.")
-    except Exception as e:
-        print(f"Error ejecutando git commit/push: {e}")
+        
+        # Verificar si hay cambios para commitear
+        status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True)
+        if ruta_json in status.stdout:
+            subprocess.run(["git", "commit", "-m", f"Actualiza tasa BCV: {tasa}"], check=True)
+            subprocess.run(["git", "push"], check=True)
+            print("✅ Sincronización completada.")
+        else:
+            print("ℹ️ Sin cambios para commitear.")
+            
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Error en git: {e}")
+        # No hacer exit(1) para permitir que el script termine gracefulmente
 
 if __name__ == "__main__":
     ruta_json = "dolar.json"
