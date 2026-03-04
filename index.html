@@ -53,6 +53,12 @@
                     <i class="bi bi-currency-dollar text-xl"></i>
                     <span id="dolar-value" class="ml-2 font-bold"></span>
                 </div>
+                
+                <!-- Botón de Búsqueda por Voz -->
+                <button id="voice-search-btn" class="hidden ml-3 p-2 rounded-full hover:bg-gray-200 transition-colors focus:outline-none" aria-label="Buscar por voz">
+                    <i id="voice-search-icon" class="bi bi-mic text-xl text-gray-700 transition-colors duration-300"></i>
+                </button>
+
                 <div class="flex-grow mx-4">
                     <input type="text" id="search-bar" placeholder="Buscar productos..." class="w-full px-4 py-2 border rounded-full">
                 </div>
@@ -165,5 +171,6 @@
 
     <script src="script.js"></script>
     <script src="tabs.js"></script>
+    <script src="voiceSearch.js"></script>
 </body>
 </html>
