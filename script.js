@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <i class="bi bi-dash-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
                             </button>
                             <span class="mx-1 w-8 text-center quantity">${quantity}</span>
-                            <button class="plus-button bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" data-id="${product.id}" aria-label="Sumar">
+                            <button class="plus-button pl-1 bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-green-400" data-id="${product.id}" aria-label="Sumar">
                                 <i class="bi bi-plus-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin-auto;"></i>
                             </button>
                         </div>
