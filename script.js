@@ -655,12 +655,34 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="font-semibold">${date.toLocaleString()}</div>
                         <div class="text-xs text-gray-500">Bs. ${entry.totalBs.toFixed(2)} • USD ${entry.totalUsd.toFixed(2)} • $${entry.dolar.toFixed(2)}</div>
                     </div>
-                    <div class="text-sm text-gray-600">${entry.items.length} ítems</div>
+                    <div class="text-sm text-gray-600 flex flex-col items-end gap-1">
+                        <span>${entry.items.length} ítems</span>
+                        <span class="text-xs font-semibold text-blue-500 hover:text-blue-700 cursor-pointer" data-replicate>Replicar pedido</span>
+                    </div>
                 </div>
                 <div class="mt-2 text-xs text-gray-700" style="display:none;" data-details>
                     ${entry.items.map(it => `<div>${it.cantidad} x ${it.nombre} — Bs. ${(it.precio*it.cantidad).toFixed(2)}</div>`).join('')}
                 </div>
             `;
+            const replicateBtn = div.querySelector('[data-replicate]');
+            if (replicateBtn) {
+                replicateBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (confirm('¿Replicar este pedido? Esto sobreescribirá tu carrito actual.')) {
+                        app.cart = {};
+                        app.cartOrder = [];
+                        entry.items.forEach(it => {
+                            app.cart[it.id] = it.cantidad;
+                            app.cartOrder.push(it.id);
+                        });
+                        app.saveCart();
+                        app.renderProducts(app.elements.searchBar.value);
+                        app.updateCartView();
+                        const modal = document.getElementById('history-modal');
+                        if (modal) modal.remove();
+                    }
+                });
+            }
             div.addEventListener('click', () => {
                 const details = div.querySelector('[data-details]');
                 if (details) details.style.display = details.style.display === 'none' ? 'block' : 'none';
