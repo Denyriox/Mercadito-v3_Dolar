@@ -54,8 +54,8 @@ self.addEventListener('fetch', (event) => {
   // Only handle GET requests
   if (req.method !== 'GET') return;
 
-  // For navigation requests prefer network first so updates are reflected
-  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html')) {
+  // For navigation requests and dynamic data (like productos.json) prefer network first so updates are reflected
+  if (req.mode === 'navigate' || (req.headers.get('accept') || '').includes('text/html') || req.url.includes('productos.json')) {
     event.respondWith(
       fetch(req).then((networkRes) => {
         // update cache in background

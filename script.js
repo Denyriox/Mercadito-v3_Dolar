@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 let products = Array.isArray(data.productos) ? data.productos.slice() : [];
                 products.sort((a, b) => String(a.nombre).localeCompare(String(b.nombre)));
 
-                // Filtrar productos cuyo nombre sea la cadena 'null' (ignorando mayúsculas y espacios)
+                // Filtrar productos cuyo nombre sea la cadena 'null' o comience con '*' (ignorando espacios)
                 products = products.filter(p => {
                     const name = (p && p.nombre) ? String(p.nombre).trim().toLowerCase() : '';
-                    return name !== 'null' && name !== '';
+                    return name !== 'null' && name !== '' && !name.startsWith('*');
                 });
 
                 // Normalizar precios:
