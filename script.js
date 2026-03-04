@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Respect quick-tab override when no explicit filter is provided
 
             const quickTab = (window && window.mercaditoApp && window.mercaditoApp.activeQuickTab) ? window.mercaditoApp.activeQuickTab : null;
-            let effectiveCategoria = categoria || quickTab || null;
             let effectiveFilter = (filter && String(filter).trim()) || '';
+            let effectiveCategoria = categoria || (effectiveFilter ? null : quickTab) || null;
             this.elements.productList.innerHTML = '';
             const filterNormalized = this.normalizeText(effectiveFilter);
             const filterWords = filterNormalized.split(' ').filter(Boolean);
