@@ -136,7 +136,7 @@
    {"id": 135, "nombre": "Semillas de Girasol", "gramos": 35, "precio": "0,67", "categoria": "General"},
    {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "0,78", "categoria": "Chocolates"},
    
-   {"id": 137, "nombre": "Sal Rosada dl Himalaya", "gramos": 100, "precio": "0,85", "categoria": "General"},
+   {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "0,85", "categoria": "General"},
    {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,", "categoria": "General"},
    {"id": 139, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
    {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
