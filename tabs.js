@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Esperar a que la app esté disponible
     const appInterval = setInterval(() => {
         const app = window.mercaditoApp || window.app;
-        if (!app || !app.products) return;
+        if (!app || !app.products || app.products.length === 0) return;
         clearInterval(appInterval);
 
         const quickTabsContainer = document.getElementById('quick-tabs');
