@@ -4,7 +4,26 @@ import json
 import os
 import subprocess
 
+def obtener_tasa_api():
+    url_api = "https://ve.dolarapi.com/v1/dolares/oficial"
+    try:
+        resp = requests.get(url_api, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+        if "promedio" in data and data["promedio"] is not None:
+            return float(data["promedio"])
+    except Exception as e:
+        print(f"Error al obtener tasa de la API: {e}")
+    return None
+
 def obtener_tasa_bcv():
+    # Intentar primero con la API
+    tasa_api = obtener_tasa_api()
+    if tasa_api is not None:
+        print(f"Tasa obtenida mediante API: {tasa_api}")
+        return tasa_api
+        
+    print("Falló la API, intentando scraping del BCV...")
     url = "https://www.bcv.org.ve/"
     try:
         resp = requests.get(url, timeout=10, verify=False)
