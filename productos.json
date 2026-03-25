@@ -61,7 +61,7 @@
    {"id": 57, "nombre": "Jengibre", "gramos": 30, "precio": "0,56", "categoria": "General"},
    {"id": 58, "nombre": "Laurel Hoja.", "gramos": 8, "precio": "0,50", "categoria": "General"},
    {"id": 59, "nombre": "Lavanda", "gramos": 5, "precio": "0,45", "categoria": "General"},
-   {"id": 61, "nombre": "Levadura", "gramos": 50, "precio": "0,50", "categoria": "General"},
+   {"id": 61, "nombre": "Levadura", "gramos": 50, "precio": "0,52", "categoria": "General"},
    {"id": 62, "nombre": "Linaza Entera.", "gramos": 100, "precio": "0,56", "categoria": "General"},
    {"id": 63, "nombre": "Linaza Molida.", "gramos": 50, "precio": "0,56", "categoria": "General"},
    {"id": 64, "nombre": "Lluvia chocolate.", "gramos": 100, "precio": "1,24", "categoria": "General"},
