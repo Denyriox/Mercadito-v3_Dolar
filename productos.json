@@ -52,7 +52,7 @@
    {"id": 48, "nombre": "Gelatina sin sabor.", "gramos": 30, "precio": "0,64", "categoria": "Gelatinas"},
    {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,55", "categoria": "General"},
    {"id": 50, "nombre": "Gotas-chocolate.", "gramos": 100, "precio": "1,40", "categoria": "Chocolates"},
-   {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,68", "categoria": "Chocolates"},
+   {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,70", "categoria": "Chocolates"},
    {"id": 52, "nombre": "Granola Miel", "gramos": 50, "precio": "0,56", "categoria": "Frutos Secos"},
    {"id": 53, "nombre": "Guayabita", "gramos": 30, "precio": "0,91", "categoria": "General"},
    {"id": 54, "nombre": "Helado Preparado.", "gramos": 100, "precio": "1,11", "categoria": "General"},
