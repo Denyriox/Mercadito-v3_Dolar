@@ -137,8 +137,8 @@
    {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "1.50", "categoria": "Chocolates"},
    
    {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "0,88", "categoria": "General"},
-   {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,", "categoria": "General"},
-   {"id": 139, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+   {"id": 138, "nombre": "Boldo", "gramos": 15, "precio": "0,65", "categoria": "General"},
+   {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "0,92", "categoria": "General"},
    {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
