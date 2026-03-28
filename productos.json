@@ -1,5 +1,5 @@
 {
-  "dolar": 457.08
+  "dolar": 468.51
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,48", "categoria": "General"},
@@ -52,7 +52,7 @@
    {"id": 48, "nombre": "Gelatina sin sabor.", "gramos": 30, "precio": "0,64", "categoria": "Gelatinas"},
    {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,55", "categoria": "General"},
    {"id": 50, "nombre": "Gotas-chocolate.", "gramos": 100, "precio": "1,40", "categoria": "Chocolates"},
-   {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,68", "categoria": "Chocolates"},
+   {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,70", "categoria": "Chocolates"},
    {"id": 52, "nombre": "Granola Miel", "gramos": 50, "precio": "0,56", "categoria": "Frutos Secos"},
    {"id": 53, "nombre": "Guayabita", "gramos": 30, "precio": "0,91", "categoria": "General"},
    {"id": 54, "nombre": "Helado Preparado.", "gramos": 100, "precio": "1,11", "categoria": "General"},
@@ -61,7 +61,7 @@
    {"id": 57, "nombre": "Jengibre", "gramos": 30, "precio": "0,56", "categoria": "General"},
    {"id": 58, "nombre": "Laurel Hoja.", "gramos": 8, "precio": "0,50", "categoria": "General"},
    {"id": 59, "nombre": "Lavanda", "gramos": 5, "precio": "0,45", "categoria": "General"},
-   {"id": 61, "nombre": "Levadura", "gramos": 50, "precio": "0,50", "categoria": "General"},
+   {"id": 61, "nombre": "Levadura", "gramos": 50, "precio": "0,52", "categoria": "General"},
    {"id": 62, "nombre": "Linaza Entera.", "gramos": 100, "precio": "0,56", "categoria": "General"},
    {"id": 63, "nombre": "Linaza Molida.", "gramos": 50, "precio": "0,56", "categoria": "General"},
    {"id": 64, "nombre": "Lluvia chocolate.", "gramos": 100, "precio": "1,24", "categoria": "General"},
@@ -137,8 +137,8 @@
    {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "1.50", "categoria": "Chocolates"},
    
    {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "0,88", "categoria": "General"},
-   {"id": 138, "nombre": "null", "gramos": 0, "precio": "0,", "categoria": "General"},
-   {"id": 139, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+   {"id": 138, "nombre": "Boldo", "gramos": 15, "precio": "0,65", "categoria": "General"},
+   {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "0,92", "categoria": "General"},
    {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
 
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
