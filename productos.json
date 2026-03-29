@@ -1,3 +1,4 @@
+
 {
   "dolar": 468.51
   ,
@@ -50,7 +51,7 @@
    {"id": 46, "nombre": "Gelatina con sabor.", "gramos": 100, "precio": "0,69", "categoria": "Gelatinas"},
 
    {"id": 48, "nombre": "Gelatina sin sabor.", "gramos": 30, "precio": "0,64", "categoria": "Gelatinas"},
-   {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,55", "categoria": "General"},
+   {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,60", "categoria": "General"},
    {"id": 50, "nombre": "Gotas-chocolate.", "gramos": 100, "precio": "1,40", "categoria": "Chocolates"},
    {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,70", "categoria": "Chocolates"},
    {"id": 52, "nombre": "Granola Miel", "gramos": 50, "precio": "0,56", "categoria": "Frutos Secos"},
