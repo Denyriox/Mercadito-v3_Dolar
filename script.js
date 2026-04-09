@@ -212,7 +212,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 card.innerHTML = `
                     <div class="flex flex-row items-baseline min-w-0 mb-2">
-                        <span class="font-bold text-lg product-title-wrap">${product.nombre}</span>
+                        <span class="font-bold text-lg product-title-wrap">${product.nombre.replace(/^Kamil\s*/i, '')}</span>
                         <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                     </div>
                     <div class="flex flex-row items-center justify-between w-full">
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.innerHTML = `
                     <div class="flex-1 min-w-0">
                         <div>
-                            <span class="font-semibold">${product.nombre}</span>
+                            <span class="font-semibold">${product.nombre.replace(/^Kamil\s*/i, '')}</span>
                             <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                         </div>
                         <div class="text-xs text-gray-500">Bs. ${product.precio.toFixed(2)} c/u${this.getOriginalPriceLabel(product)}${detalle}</div>
@@ -661,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mt-2 text-xs text-gray-700" style="display:none;" data-details>
-                    ${entry.items.map(it => `<div>${it.cantidad} x ${it.nombre} — Bs. ${(it.precio*it.cantidad).toFixed(2)}</div>`).join('')}
+                    ${entry.items.map(it => `<div>${it.cantidad} x ${it.nombre.replace(/^Kamil\s*/i, '')} — Bs. ${(it.precio*it.cantidad).toFixed(2)}</div>`).join('')}
                 </div>
             `;
             const replicateBtn = div.querySelector('[data-replicate]');
