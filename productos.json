@@ -4,7 +4,7 @@
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,48", "categoria": "General"},
-   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil)", "gramos": 45, "precio": "0,54", "categoria": "General"},
+   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil) / Caldo de Pollo", "gramos": 45, "precio": "0,54", "categoria": "General"},
    {"id": 3, "nombre": "Adobo", "gramos": 50, "precio": "0,56", "categoria": "General"},
    {"id": 4, "nombre": "Afrecho", "gramos": 100, "precio": "0,3", "categoria": "General"},
    {"id": 5, "nombre": "Ajinomoto", "gramos": 45, "precio": "0,43", "categoria": "General"},
