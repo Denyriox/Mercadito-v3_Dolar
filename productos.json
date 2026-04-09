@@ -146,7 +146,7 @@
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,75", "categoria": "Kamil"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
    {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
-   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": "2,5", "categoria": "Kamil"},
-   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": "5", "categoria": "Kamil"}
+   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": 1200, "categoria": "Kamil"},
+   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": 2400, "categoria": "Kamil"}
  ]
 }
