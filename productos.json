@@ -1,10 +1,10 @@
 
 {
-  "dolar": 475.01
+  "dolar": 0.00
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,48", "categoria": "General"},
-   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil)", "gramos": 45, "precio": "0,54", "categoria": "General"},
+   {"id": 2, "nombre": "ACP (Ajo-Cebolla-Perejil) / Caldo de Pollo", "gramos": 45, "precio": "0,54", "categoria": "General"},
    {"id": 3, "nombre": "Adobo", "gramos": 50, "precio": "0,56", "categoria": "General"},
    {"id": 4, "nombre": "Afrecho", "gramos": 100, "precio": "0,3", "categoria": "General"},
    {"id": 5, "nombre": "Ajinomoto", "gramos": 45, "precio": "0,43", "categoria": "General"},
@@ -145,6 +145,8 @@
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,75", "categoria": "Kamil"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
-   {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"}
+   {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
+   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": 1200, "categoria": "Kamil"},
+   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": 2400, "categoria": "Kamil"}
  ]
 }
