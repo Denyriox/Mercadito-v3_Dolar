@@ -142,7 +142,7 @@
    {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "0,92", "categoria": "General"},
    {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,40", "categoria": "General"},
 
-   {"id": 141, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 141, "nombre": "Caldo d Pollo", "gramos": 50, "precio": "0.54", "categoria": "General"},
    {"id": 142, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
    {"id": 143, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
    {"id": 144, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
