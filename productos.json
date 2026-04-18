@@ -142,12 +142,22 @@
    {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "0,92", "categoria": "General"},
    {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,40", "categoria": "General"},
 
-   {"id": 201, "nombre": "Kamil Casabe Mini Galleta"2 bolsitas de pimienta negra 
-3 de bicarbonato y 3 laminas blancas de gelatina "gramos": 1, "precio": "2", "categoria": "Kamil"},
+   {"id": 141, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 142, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 143, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 144, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 145, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 146, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 147, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 148, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 149, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+
+
+   {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,75", "categoria": "Kamil"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
    {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
-   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": 1200, "categoria": "Kamil"},
-   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": 2400, "categoria": "Kamil"}
+   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": "2,50", "categoria": "Kamil"},
+   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": "5,00", "categoria": "Kamil"}
  ]
 }
