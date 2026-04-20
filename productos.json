@@ -24,7 +24,7 @@
    {"id": 19, "nombre": "Canela-Entera (Rama).", "gramos": 20, "precio": "0,56", "categoria": "General"},
    {"id": 20, "nombre": "Canela-Molida.", "gramos": 30, "precio": "0,78", "categoria": "General"},
    {"id": 21, "nombre": "Carmencita", "gramos": 50, "precio": "0,60", "categoria": "General"},
-   {"id": 22, "nombre": "Cebolla-Granulada (Molida).", "gramos": 45, "precio": "0,66", "categoria": "General"},
+   {"id": 22, "nombre": "Cebolla-Granulada (Molida).", "gramos": 45, "precio": "0,70", "categoria": "General"},
    {"id": 23, "nombre": "Cebolla-Hojuela.", "gramos": 40, "precio": "0,66", "categoria": "General"},
    {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,62", "categoria": "General"},
    {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,38", "categoria": "Chocolates"},
