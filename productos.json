@@ -1,6 +1,6 @@
 
 {
-  "dolar": 0.00
+  "dolar": 481.22
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,48", "categoria": "General"},
@@ -24,7 +24,7 @@
    {"id": 19, "nombre": "Canela-Entera (Rama).", "gramos": 20, "precio": "0,56", "categoria": "General"},
    {"id": 20, "nombre": "Canela-Molida.", "gramos": 30, "precio": "0,78", "categoria": "General"},
    {"id": 21, "nombre": "Carmencita", "gramos": 50, "precio": "0,60", "categoria": "General"},
-   {"id": 22, "nombre": "Cebolla-Granulada (Molida).", "gramos": 45, "precio": "0,66", "categoria": "General"},
+   {"id": 22, "nombre": "Cebolla-Granulada (Molida).", "gramos": 45, "precio": "0,70", "categoria": "General"},
    {"id": 23, "nombre": "Cebolla-Hojuela.", "gramos": 40, "precio": "0,66", "categoria": "General"},
    {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,62", "categoria": "General"},
    {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,38", "categoria": "Chocolates"},
@@ -119,7 +119,7 @@
    {"id": 117, "nombre": "Leche Condensada. Flower", "gramos": 250, "precio": "2,29", "categoria": "General"},
    {"id": 116, "nombre": "Mani Japonés Surtido", "gramos": 50, "precio": "0,46", "categoria": "Frutos Secos"},
    {"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,43", "categoria": "General"},
-   {"id": 119, "nombre": "Cubito Maggi (Pollo y Carne)", "gramos": 1, "precio": "0,38", "categoria": "General"},
+   {"id": 119, "nombre": "Cubito Maggi (Pollo y Carne)", "gramos": 1, "precio": "0,40", "categoria": "General"},
    {"id": 120, "nombre": "Aceitunas Rellenas", "gramos": 250, "precio": "2,58", "categoria": "General"},
    {"id": 121, "nombre": "Alcaparras", "gramos": 200, "precio": "1,82", "categoria": "General"},
    {"id": 122, "nombre": "* Cintillos y Gorritos de Navidad", "gramos": 1, "precio": "2,03", "categoria": "General"},
@@ -137,16 +137,48 @@
    {"id": 135, "nombre": "Semillas de Girasol", "gramos": 35, "precio": "0,56", "categoria": "General"},
    {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "1.50", "categoria": "Chocolates"},
    
-   {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "0,88", "categoria": "General"},
+   {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "1,30", "categoria": "General"},
    {"id": 138, "nombre": "Boldo", "gramos": 15, "precio": "0,65", "categoria": "General"},
    {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "0,92", "categoria": "General"},
-   {"id": 140, "nombre": "null", "gramos": 0, "precio": "0,0", "categoria": "General"},
+   {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,40", "categoria": "General"},
 
+   {"id": 141, "nombre": "Caldo d Pollo", "gramos": 50, "precio": "0.54", "categoria": "General"},
+   {"id": 142, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 143, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 144, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 145, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 146, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 147, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 148, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+   {"id": 149, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2", "categoria": "Kamil"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,75", "categoria": "Kamil"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
    {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
-   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": 1200, "categoria": "Kamil"},
-   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": 2400, "categoria": "Kamil"}
+   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": "2,50", "categoria": "Kamil"},
+   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": "5,00", "categoria": "Kamil"}
  ]
 }
