@@ -143,7 +143,7 @@
    {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,40", "categoria": "General"},
 
    {"id": 141, "nombre": "Caldo de Pollo", "gramos": 50, "precio": "0.54", "categoria": "General"},
-   {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.5", "categoria": "General"},
+   {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.55", "categoria": "General"},
    {"id": 143, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
    {"id": 144, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
    {"id": 145, "nombre": "null", "gramos": 0, "precio": "0", "categoria": "General"},
