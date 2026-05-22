@@ -41,7 +41,7 @@
    {"id": 36, "nombre": "Confite Carnaval", "gramos": 100, "precio": "0,68", "categoria": "General"},
    {"id": 37, "nombre": "Confite Carnaval", "gramos": 50, "precio": "0,35", "categoria": "General"},
    {"id": 38, "nombre": "Cubito-Preparado.", "gramos": 50, "precio": "0,5", "categoria": "General"},
-   {"id": 39, "nombre": "Cúrcuma", "gramos": 40, "precio": "0,52", "categoria": "General"},
+   {"id": 39, "nombre": "Cúrcuma", "gramos": 40, "precio": "0,57", "categoria": "General"},
    {"id": 40, "nombre": "Curry", "gramos": 40, "precio": "0,52", "categoria": "General"},
    {"id": 41, "nombre": "Dandy mini-micro dandy", "gramos": 50, "precio": "0,6", "categoria": "Chocolates"},
    {"id": 42, "nombre": "Eneldo Semilla.", "gramos": 30, "precio": "0,38", "categoria": "General"},
