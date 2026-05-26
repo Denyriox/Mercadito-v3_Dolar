@@ -1,6 +1,6 @@
 
 {
-  "dolar": 523.67
+  "dolar": 535.39
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -13,7 +13,7 @@
    {"id": 8, "nombre": "Ajo-Mix (Sabroseador)", "gramos": 40, "precio": "0,6", "categoria": "General"},
    {"id": 9, "nombre": "Albahaca", "gramos": 25, "precio": "0,53", "categoria": "General"},
    {"id": 10, "nombre": "Almendras-Fileteada.", "gramos": 40, "precio": "1,52", "categoria": "Frutos Secos"},
-   {"id": 11, "nombre": "Almendras-Marron", "gramos": 50, "precio": "1,22", "categoria": "Frutos Secos"},
+   {"id": 11, "nombre": "Almendras-Marron", "gramos": 50, "precio": "1,02", "categoria": "Frutos Secos"},
    {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,39", "categoria": "General"},
    {"id": 13, "nombre": "Anis-Dulce", "gramos": 20, "precio": "0,42", "categoria": "General"},
    {"id": 14, "nombre": "Anis-Estrellado.", "gramos": 30, "precio": "0,72", "categoria": "General"},
@@ -75,11 +75,11 @@
    {"id": 72, "nombre": "Manzanilla", "gramos": 30, "precio": "0,70", "categoria": "General"},
    {"id": 73, "nombre": "Mejorana", "gramos": 30, "precio": "0,54", "categoria": "General"},
    {"id": 74, "nombre": "Menta", "gramos": 30, "precio": "0,53", "categoria": "General"},
-   {"id": 75, "nombre": "Merey", "gramos": 50, "precio": "1,18", "categoria": "Frutos Secos"},
+   {"id": 75, "nombre": "Merey", "gramos": 50, "precio": "1,02", "categoria": "Frutos Secos"},
    {"id": 76, "nombre": "Miramar", "gramos": 50, "precio": "0,72", "categoria": "Chocolates"},
    {"id": 77, "nombre": "Moringa", "gramos": 20, "precio": "0,45", "categoria": "General"},
    {"id": 78, "nombre": "Naranja Confitada.", "gramos": 40, "precio": "1,53", "categoria": "General"},
-   {"id": 79, "nombre": "Nueces Peladas.", "gramos": 50, "precio": "1,12", "categoria": "Frutos Secos"},
+   {"id": 79, "nombre": "Nueces Peladas.", "gramos": 50, "precio": "1,02", "categoria": "Frutos Secos"},
    {"id": 80, "nombre": "Nuez Moscada. Entera.", "gramos": 1, "precio": "0,55", "categoria": "General"},
    {"id": 81, "nombre": "Nuez Moscada. Molida.", "gramos": 30, "precio": "1,44", "categoria": "General"},
    {"id": 82, "nombre": "Onoto", "gramos": 50, "precio": "0,46", "categoria": "General"},
@@ -92,7 +92,7 @@
    {"id": 89, "nombre": "Pimienta Negra-Molida.", "gramos": 40, "precio": "1,02", "categoria": "General"},
    {"id": 90, "nombre": "Pimienta Negra-Molida-Pura", "gramos": 20, "precio": "0,96", "categoria": "General"},
    {"id": 91, "nombre": "Ping-Pong", "gramos": 50, "precio": "0,74", "categoria": "Chocolates"},
-   {"id": 92, "nombre": "Pistacho", "gramos": 40, "precio": "1,66", "categoria": "Frutos Secos"},
+   {"id": 92, "nombre": "Pistacho", "gramos": 40, "precio": "1,40", "categoria": "Frutos Secos"},
    {"id": 93, "nombre": "Polvo-Hornear", "gramos": 50, "precio": "0,47", "categoria": "General"},
    {"id": 94, "nombre": "Pudin-Preparado.", "gramos": 100, "precio": "0,89", "categoria": "General"},
    {"id": 95, "nombre": "Quinoa", "gramos": 100, "precio": "1,02", "categoria": "General"},
