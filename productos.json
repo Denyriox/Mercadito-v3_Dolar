@@ -141,7 +141,7 @@
    {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,42", "categoria": "General"},
    {"id": 141, "nombre": "Caldo de Pollo", "gramos": 50, "precio": "0.56", "categoria": "General"},
    {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.57", "categoria": "General"},
-   {"id": 143, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
+   {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
    {"id": 144, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
    {"id": 145, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
    {"id": 146, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
