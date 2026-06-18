@@ -1,6 +1,6 @@
 
 {
-  "dolar": 596.78
+  "dolar": 602.33
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
