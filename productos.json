@@ -1,6 +1,6 @@
 
 {
-  "dolar": 602.33
+  "dolar": 612.43
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -77,7 +77,7 @@
    {"id": 74, "nombre": "Menta", "gramos": 30, "precio": "0,53", "categoria": "General"},
    {"id": 75, "nombre": "Merey", "gramos": 50, "precio": "1,10", "categoria": "Frutos Secos"},
    {"id": 76, "nombre": "Miramar", "gramos": 50, "precio": "0,72", "categoria": "Chocolates"},
-   {"id": 77, "nombre": "Moringa", "gramos": 20, "precio": "0,45", "categoria": "General"},
+   {"id": 77, "nombre": "Moringa", "gramos": 20, "precio": "0,42", "categoria": "General"},
    {"id": 78, "nombre": "Naranja Confitada.", "gramos": 40, "precio": "1,53", "categoria": "General"},
    {"id": 79, "nombre": "Nueces Peladas.", "gramos": 50, "precio": "1,35", "categoria": "Frutos Secos"},
    {"id": 80, "nombre": "Nuez Moscada. Entera.", "gramos": 1, "precio": "0,55", "categoria": "General"},
@@ -142,7 +142,7 @@
    {"id": 141, "nombre": "Caldo de Pollo", "gramos": 50, "precio": "0.56", "categoria": "General"},
    {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.57", "categoria": "General"},
    {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
-   {"id": 144, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
+   {"id": 144, "nombre": "Cebada", "gramos": 150, "precio": "0.51", "categoria": "General"},
    {"id": 145, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
    {"id": 146, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
    {"id": 147, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
