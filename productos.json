@@ -1,6 +1,6 @@
 
 {
-  "dolar": 700.22
+  "dolar": 724.00
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -50,7 +50,7 @@
    {"id": 45, "nombre": "Fruto Seco Surtido Delux", "gramos": 50, "precio": "1,31", "categoria": "Frutos Secos"},
    {"id": 46, "nombre": "Gelatina con sabor.", "gramos": 100, "precio": "0,71", "categoria": "Gelatinas"},
    {"id": 48, "nombre": "Gelatina sin sabor.", "gramos": 30, "precio": "0,66", "categoria": "Gelatinas"},
-   {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,57", "categoria": "General"},
+   {"id": 49, "nombre": "Gomitas", "gramos": 50, "precio": "0,69", "categoria": "General"},
    {"id": 50, "nombre": "Gotas-chocolate.", "gramos": 100, "precio": "1,42", "categoria": "Chocolates"},
    {"id": 51, "nombre": "Gotas-chocolate.", "gramos": 50, "precio": "0,72", "categoria": "Chocolates"},
    {"id": 52, "nombre": "Granola Miel", "gramos": 50, "precio": "0,58", "categoria": "Frutos Secos"},
