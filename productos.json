@@ -1,6 +1,6 @@
 
 {
-  "dolar": 725.75
+  "dolar": 727.45
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -152,8 +152,8 @@
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,8", "categoria": "Kamil"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,55", "categoria": "Kamil"},
    {"id": 204, "nombre": "Kamil 2 Naiboas", "gramos": 1, "precio": "1", "categoria": "Kamil"},
-   {"id": 205, "nombre": "*Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": "2,50", "categoria": "Kamil"},
-   {"id": 206, "nombre": "*Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": "5,00", "categoria": "Kamil"},
+   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": "2,50", "categoria": "Kamil"},
+   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": "5,00", "categoria": "Kamil"},
    {"id": 207, "nombre": "*Kamil 5 Tortas de Uchireño", "gramos": 1, "precio": "1,50", "categoria": "Kamil"}
  ]
 }
