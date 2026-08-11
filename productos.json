@@ -1,6 +1,6 @@
 
 {
-  "dolar": 756.71
+  "dolar": 761.22
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -78,7 +78,7 @@
    {"id": 75, "nombre": "Merey", "gramos": 50, "precio": "1,10", "categoria": "Frutos Secos"},
    {"id": 76, "nombre": "Miramar", "gramos": 50, "precio": "0,72", "categoria": "Chocolates"},
    {"id": 77, "nombre": "Moringa", "gramos": 20, "precio": "0,42", "categoria": "General"},
-   {"id": 78, "nombre": "Naranja Confitada.", "gramos": 40, "precio": "1,53", "categoria": "General"},
+   {"id": 78, "nombre": "Naranja Confitada.", "gramos": 45, "precio": "1,31", "categoria": "General"},
    {"id": 79, "nombre": "Nueces Peladas.", "gramos": 50, "precio": "1,35", "categoria": "Frutos Secos"},
    {"id": 80, "nombre": "Nuez Moscada. Entera.", "gramos": 1, "precio": "0,55", "categoria": "General"},
    {"id": 81, "nombre": "Nuez Moscada. Molida.", "gramos": 30, "precio": "1,44", "categoria": "General"},
@@ -137,8 +137,8 @@
    {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "0.80", "categoria": "Chocolates"},
    {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "1,32", "categoria": "General"},
    {"id": 138, "nombre": "Boldo", "gramos": 15, "precio": "0,57", "categoria": "General"},
-   {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "1.04", "categoria": "General"},
-   {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,42", "categoria": "General"},
+   {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "1.31", "categoria": "General"},
+   {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,45", "categoria": "General"},
    {"id": 141, "nombre": "Caldo de Pollo", "gramos": 50, "precio": "0.56", "categoria": "General"},
    {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.57", "categoria": "General"},
    {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
