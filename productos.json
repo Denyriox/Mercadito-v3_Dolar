@@ -1,6 +1,6 @@
 
 {
-  "dolar": 850.00
+  "dolar": 854.46
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -120,7 +120,7 @@
    {"id": 118, "nombre": "Eucalipto", "gramos": 50, "precio": "0,45", "categoria": "General"},
    {"id": 119, "nombre": "Cubito Maggi (Pollo y Carne)", "gramos": 1, "precio": "0,42", "categoria": "General"},
    {"id": 120, "nombre": "Aceitunas Rellenas", "gramos": 250, "precio": "2,6", "categoria": "General"},
-   {"id": 121, "nombre": "Alcaparras", "gramos": 200, "precio": "1,84", "categoria": "General"},
+   {"id": 121, "nombre": "Alcaparras", "gramos": 200, "precio": "1,17", "categoria": "General"},
    {"id": 122, "nombre": "* Cintillos y Gorritos de Navidad", "gramos": 1, "precio": "2,05", "categoria": "General"},
    {"id": 123, "nombre": "* Dulces Abrillantados", "gramos": 1, "precio": "2,55", "categoria": "General"},
    {"id": 124, "nombre": "Gelatina sin sabor. Lamina Roja", "gramos": 1, "precio": "0,43 (0,80)", "categoria": "Gelatinas"},
