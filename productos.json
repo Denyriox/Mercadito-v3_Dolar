@@ -14,7 +14,7 @@
    {"id": 9, "nombre": "Albahaca", "gramos": 25, "precio": "0,53", "categoria": "General"},
    {"id": 10, "nombre": "Almendras-Fileteada.", "gramos": 40, "precio": "1,52", "categoria": "Frutos Secos"},
    {"id": 11, "nombre": "Almendras-Marron", "gramos": 50, "precio": "1,10", "categoria": "Frutos Secos"},
-   {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,39", "categoria": "General"},
+   {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,35", "categoria": "General"},
    {"id": 13, "nombre": "Anis-Dulce", "gramos": 20, "precio": "0,42", "categoria": "General"},
    {"id": 14, "nombre": "Anis-Estrellado.", "gramos": 30, "precio": "0,72", "categoria": "General"},
    {"id": 15, "nombre": "Avena", "gramos": 200, "precio": "0,55", "categoria": "General"},
