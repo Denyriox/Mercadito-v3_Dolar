@@ -1,6 +1,6 @@
 
 {
-  "dolar": 854.46
+  "dolar": 857.01
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -14,7 +14,7 @@
    {"id": 9, "nombre": "Albahaca", "gramos": 25, "precio": "0,53", "categoria": "General"},
    {"id": 10, "nombre": "Almendras-Fileteada.", "gramos": 40, "precio": "1,52", "categoria": "Frutos Secos"},
    {"id": 11, "nombre": "Almendras-Marron", "gramos": 50, "precio": "1,10", "categoria": "Frutos Secos"},
-   {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,39", "categoria": "General"},
+   {"id": 12, "nombre": "Alpiste", "gramos": 100, "precio": "0,35", "categoria": "General"},
    {"id": 13, "nombre": "Anis-Dulce", "gramos": 20, "precio": "0,42", "categoria": "General"},
    {"id": 14, "nombre": "Anis-Estrellado.", "gramos": 30, "precio": "0,72", "categoria": "General"},
    {"id": 15, "nombre": "Avena", "gramos": 200, "precio": "0,55", "categoria": "General"},
@@ -43,7 +43,7 @@
    {"id": 38, "nombre": "Cubito-Preparado.", "gramos": 50, "precio": "0,5", "categoria": "General"},
    {"id": 39, "nombre": "Cúrcuma", "gramos": 40, "precio": "0,57", "categoria": "General"},
    {"id": 40, "nombre": "Curry", "gramos": 40, "precio": "0,52", "categoria": "General"},
-   {"id": 41, "nombre": "Dandy mini-micro dandy", "gramos": 50, "precio": "0,82", "categoria": "Chocolates"},
+   {"id": 41, "nombre": "Dandy mini-micro dandy", "gramos": 50, "precio": "0,50", "categoria": "Chocolates"},
    {"id": 42, "nombre": "Eneldo Semilla.", "gramos": 30, "precio": "0,38", "categoria": "General"},
    {"id": 43, "nombre": "Fruta Confitada", "gramos": 100, "precio": "0,75", "categoria": "General"},
    {"id": 44, "nombre": "Flor de Jamaica", "gramos": 40, "precio": "0,72", "categoria": "General"},
@@ -140,7 +140,7 @@
    {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "1.14", "categoria": "General"},
    {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,45", "categoria": "General"},
    {"id": 141, "nombre": "Caldo de Pollo", "gramos": 50, "precio": "0.56", "categoria": "General"},
-   {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.57", "categoria": "General"},
+   {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.41", "categoria": "General"},
    {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
    {"id": 144, "nombre": "Cebada", "gramos": 150, "precio": "0.51", "categoria": "General"},
    {"id": 145, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
