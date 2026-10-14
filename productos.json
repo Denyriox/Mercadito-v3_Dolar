@@ -143,7 +143,7 @@
    {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.41", "categoria": "General"},
    {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
    {"id": 144, "nombre": "Cebada", "gramos": 150, "precio": "0.51", "categoria": "General"},
-   {"id": 145, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
+   {"id": 145, "nombre": "Sésamo Ajonjolí Negro", "gramos": 40, "precio": "0.52", "categoria": "General"},
    {"id": 146, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
    {"id": 147, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
    {"id": 148, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
