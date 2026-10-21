@@ -41,6 +41,38 @@ El Total en USD, calculado dinámicamente usando el valor del dólar del archivo
 Finalmente, un botón de "Proceder a Pagar". Al presionarlo, el carrito se vacía por completo y la vista lateral se cierra, dejando la aplicación lista para una nueva compra.
 
 Persistencia: El contenido del carrito se guarda en el localStorage del navegador. Esto significa que si el usuario cierra o recarga la página, su lista de compras permanecerá intacta.
-Componentes: La interfaz está modularizada en componentes reutilizables (ProductCard, Cart, etc.) utilizando ShadCN UI para los elementos de la interfaz, lo que garantiza un diseño moderno y consistente.
-Estilo: Se utiliza Tailwind CSS para un diseño responsivo y personalizable.
+Componentes: La interfaz es HTML + JavaScript vanilla (sin frameworks). El estilo se apoya en Tailwind CSS, compilado localmente en `tailwind.css` (no se usa el CDN).
+Estilo: Se utiliza Tailwind CSS para un diseño responsivo y personalizable, complementado con `style.css`.
 En resumen, es un sistema de compras optimizado para la eficiencia, con una interfaz minimalista, funcionalidades inteligentes como la búsqueda insensible a acentos y la persistencia de datos, y una clara separación entre la lógica de la aplicación y los datos de los productos.
+
+## Desarrollo
+
+### CSS (Tailwind)
+
+`tailwind.css` está generado y versionado. Si agregas o cambias clases de Tailwind
+en `index.html`, `script.js`, `tabs.js`, `pagoMovil.js` o `voiceSearch.js`, debes
+regenerarlo:
+
+```bash
+npm run build:css      # build único (minificado)
+npm run watch:css      # rebuild automático mientras desarrollas
+```
+
+El HTML carga `tailwind.css`, `style.css` y Bootstrap Icons desde rutas locales,
+así la app funciona sin conexión.
+
+### PWA / modo offline
+
+El service worker (`service-worker.js`) precarga todos los assets, los JSON de
+datos y los QR de Pago Móvil. Estrategias:
+
+- HTML: red primero (timeout 4 s) → cache → `index.html` offline.
+- JSON (`productos.json`, `dolar.json`, etc.): red primero (timeout 3.5 s) → cache.
+- Resto de assets: cache primero + revalidación en segundo plano.
+
+Al desplegar cambios, incrementa `CACHE_VERSION` en `service-worker.js` para
+invalidar los caches anteriores. También hay que actualizarlo si cambias la
+lista `PRECACHE_URLS`.
+
+Para probar el modo offline: abre la app, espera a que cargue, luego en
+DevTools → Application → Service Workers marca "Offline" y recarga.

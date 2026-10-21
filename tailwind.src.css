@@ -1,0 +1,8 @@
+/*
+ * Entrada de Tailwind para generar `tailwind.css` (CSS estático).
+ * Regenerar con: npm run build:css
+ * No editar `tailwind.css` a mano.
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
