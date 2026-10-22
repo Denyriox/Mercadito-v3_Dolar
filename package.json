@@ -1,4 +1,11 @@
 {
+  "name": "mercadito-v3-dolar",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:css": "npx --yes tailwindcss@3.4.17 -i tailwind.src.css -o tailwind.css --minify",
+    "watch:css": "npx --yes tailwindcss@3.4.17 -i tailwind.src.css -o tailwind.css --watch"
+  },
   "dependencies": {
     "bootstrap-icons": "^1.13.1"
   }
