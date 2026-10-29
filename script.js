@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 this.products = products;
-                this.elements.dolarValue.textContent = this.dolar.toFixed(2);
+                this.elements.dolarValue.textContent = this.formatPrice(this.dolar);
                 this.loadCart();
                 // Cargar estado de modo oscuro persistido (si existe)
                 if (typeof this.loadDarkModeState === 'function') this.loadDarkModeState();
@@ -202,13 +202,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.elements.productList.appendChild(productCard);
             });
         },
+        // Formatea un número como precio: punto para miles y coma para decimales (ej. 1.234,56)
+        formatPrice(value) {
+            const num = Number(value);
+            const safe = isNaN(num) ? 0 : num;
+            const [intPart, decPart] = Math.abs(safe).toFixed(2).split('.');
+            const grouped = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+            return `${safe < 0 ? '-' : ''}${grouped},${decPart}`;
+        },
         createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'bg-white p-4 rounded-lg shadow flex flex-col gap-2';
             const quantity = this.cart[product.id] || 0;
                 let precio2Html = '';
                 if (product.precio2) {
-                    precio2Html = `<div class=\"mt-1 text-xs text-blue-600 font-semibold\">x2</div><div class=\"text-xs font-bold text-blue-700\">Bs. ${product.precio2.toFixed(2)}${product._precio2_original ? ` <span class='text-xs text-gray-500'>($${product._precio2_original.value.toFixed(2)})</span>` : ''}</div>`;
+                    precio2Html = `<div class=\"mt-1 text-xs text-blue-600 font-semibold\">x2</div><div class=\"text-xs font-bold text-blue-700\">Bs. ${this.formatPrice(product.precio2)}${product._precio2_original ? ` <span class='text-xs text-gray-500'>($${this.formatPrice(product._precio2_original.value)})</span>` : ''}</div>`;
                 }
                 card.innerHTML = `
                     <div class="flex flex-row items-baseline min-w-0 mb-2">
@@ -217,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="flex flex-row items-center justify-between w-full">
                         <div class="flex flex-col items-start">
-                            <span class="mx-2 font-bold whitespace-nowrap">Bs. ${product.precio.toFixed(2)}${this.getOriginalPriceLabel(product)}</span>
+                            <span class="mx-2 font-bold whitespace-nowrap">Bs. ${this.formatPrice(product.precio)}${this.getOriginalPriceLabel(product)}</span>
                             ${precio2Html ? `<div>${precio2Html}</div>` : ''}
                         </div>
                         <div class="flex items-center space-x-1">
@@ -366,9 +374,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 totalProductsElem.textContent = totalItems;
             }
             this.elements.cartTotalItems.textContent = totalItems;
-            this.elements.cartTotalBs.textContent = totalBs.toFixed(2);
+            this.elements.cartTotalBs.textContent = this.formatPrice(totalBs);
             const totalUsd = totalBs / this.dolar;
-            this.elements.cartTotalUsd.textContent = totalUsd.toFixed(2);
+            this.elements.cartTotalUsd.textContent = this.formatPrice(totalUsd);
 
             // Calcular vuelto/cambio
             const cartChangeInfo = document.getElementById('cart-change-info');
@@ -378,11 +386,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     const usdDown = Math.floor(totalUsd); // redondeo hacia abajo
                     const faltaUsd = +(usdUp - totalUsd).toFixed(2);
                     const devolverUsd = +(totalUsd - usdDown).toFixed(2);
-                    const faltaBs = (faltaUsd * this.dolar).toFixed(2);
-                    const devolverBs = (devolverUsd * this.dolar).toFixed(2);
+                    const faltaBs = +(faltaUsd * this.dolar).toFixed(2);
+                    const devolverBs = +(devolverUsd * this.dolar).toFixed(2);
                     cartChangeInfo.innerHTML =
-                        `<span><span style="color: red;">Vuelto:</span> <b>Bs. ${faltaBs}</b> si paga <b>${usdUp} USD</b></span>` +
-                        `<span><span style="color: green;">Completar:</span> <b>Bs. ${devolverBs}</b> si paga <b>${usdDown === 0 ? '' : usdDown + ' USD'}</b>${usdDown === 0 ? '' : ''}</span>`;
+                        `<span><span style="color: red;">Vuelto:</span> <b>Bs. ${this.formatPrice(faltaBs)}</b> si paga <b>${usdUp} USD</b></span>` +
+                        `<span><span style="color: green;">Completar:</span> <b>Bs. ${this.formatPrice(devolverBs)}</b> si paga <b>${usdDown === 0 ? '' : usdDown + ' USD'}</b>${usdDown === 0 ? '' : ''}</span>`;
                 } else {
                     cartChangeInfo.innerHTML = '';
                 }
@@ -398,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (labelElem) labelElem.textContent = `producto${totalItems === 1 ? '' : 's'}`;
                 // Monto en Bs
                 const amountElem = this.elements.cartPreviewBar.querySelector('.cart-preview-amount');
-                if (amountElem) amountElem.textContent = totalBs.toFixed(2);
+                if (amountElem) amountElem.textContent = this.formatPrice(totalBs);
                 // Mostrar/ocultar barra según si hay productos y si el carrito está cerrado
                 const cartOpen = !this.elements.cartSidebar.classList.contains('translate-x-full');
                 this.elements.cartPreviewBar.style.display = (!cartOpen && totalItems > 0) ? 'flex' : 'none';
@@ -414,7 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const pares = Math.floor(quantity / 2);
                     const resto = quantity % 2;
                     subtotal = (product.precio2 * pares) + (product.precio * resto);
-                    detalle = `<span class='text-xs text-blue-700 ml-1'>(x2 Bs. ${product.precio2.toFixed(2)}${pares > 0 ? ` × ${pares}` : ''}${resto > 0 ? ` + x1 Bs. ${product.precio.toFixed(2)} × ${resto}` : ''})</span>`;
+                    detalle = `<span class='text-xs text-blue-700 ml-1'>(x2 Bs. ${this.formatPrice(product.precio2)}${pares > 0 ? ` × ${pares}` : ''}${resto > 0 ? ` + x1 Bs. ${this.formatPrice(product.precio)} × ${resto}` : ''})</span>`;
                 } else {
                     subtotal = product.precio * quantity;
                 }
@@ -424,9 +432,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="font-semibold">${product.nombre.replace(/^Kamil\s*/i, '')}</span>
                             <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
                         </div>
-                        <div class="text-xs text-gray-500">Bs. ${product.precio.toFixed(2)} c/u${this.getOriginalPriceLabel(product)}${detalle}</div>
+                        <div class="text-xs text-gray-500">Bs. ${this.formatPrice(product.precio)} c/u${this.getOriginalPriceLabel(product)}${detalle}</div>
                     </div>
-                    <span class="mx-2 font-bold whitespace-nowrap">Bs. ${subtotal.toFixed(2)}</span>
+                    <span class="mx-2 font-bold whitespace-nowrap">Bs. ${this.formatPrice(subtotal)}</span>
                     <div class="flex items-center space-x-1">
                         <button class="restar bg-red-500 hover:bg-red-600 transition-colors text-white rounded-full p-0 w-8 h-8 flex items-center justify-center shadow-md focus:outline-none focus:ring-2 focus:ring-red-400" data-id="${product.id}" aria-label="Restar">
                             <i class="bi bi-dash-lg" style="font-size:1.5rem;line-height:1;display:flex;align-items:center;justify-content:center;margin:auto;"></i>
@@ -592,7 +600,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 if (product && product._precio_is_usd && product._precio_original && !isNaN(Number(product._precio_original.value))) {
                     const usd = Number(product._precio_original.value);
-                    return ` <span class="text-xs text-gray-500">($${usd.toFixed(2)})</span>`;
+                    return ` <span class="text-xs text-gray-500">($${this.formatPrice(usd)})</span>`;
                 }
             } catch (e) {
                 // noop
@@ -653,7 +661,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex justify-between items-center">
                     <div>
                         <div class="font-semibold">${date.toLocaleString()}</div>
-                        <div class="text-xs text-gray-500">Bs. ${entry.totalBs.toFixed(2)} • USD ${entry.totalUsd.toFixed(2)} • $${entry.dolar.toFixed(2)}</div>
+                        <div class="text-xs text-gray-500">Bs. ${app.formatPrice(entry.totalBs)} • USD ${app.formatPrice(entry.totalUsd)} • $${app.formatPrice(entry.dolar)}</div>
                     </div>
                     <div class="text-sm text-gray-600 flex flex-col items-end gap-1">
                         <span>${entry.items.length} ítems</span>
@@ -661,7 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mt-2 text-xs text-gray-700" style="display:none;" data-details>
-                    ${entry.items.map(it => `<div>${it.cantidad} x ${it.nombre.replace(/^Kamil\s*/i, '')} — Bs. ${(it.precio*it.cantidad).toFixed(2)}</div>`).join('')}
+                    ${entry.items.map(it => `<div>${it.cantidad} x ${it.nombre.replace(/^Kamil\s*/i, '')} — Bs. ${app.formatPrice(it.precio*it.cantidad)}</div>`).join('')}
                 </div>
             `;
             const replicateBtn = div.querySelector('[data-replicate]');

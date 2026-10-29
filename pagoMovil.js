@@ -22,8 +22,8 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
         // Obtener totales del carrito
         let totalBs = 0, totalUsd = 0;
         try {
-            totalBs = document.getElementById('cart-total-bs')?.textContent || '0.00';
-            //totalUsd = document.getElementById('cart-total-usd')?.textContent || '0.00';
+            totalBs = document.getElementById('cart-total-bs')?.textContent || '0,00';
+            //totalUsd = document.getElementById('cart-total-usd')?.textContent || '0,00';
         } catch(e) {}
         tarjeta.innerHTML = `
             <div class="tarjeta-header">

@@ -1,6 +1,6 @@
 
 {
-  "dolar": 887.35
+  "dolar": 889.89
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -26,7 +26,7 @@
    {"id": 21, "nombre": "Carmencita", "gramos": 50, "precio": "0,62", "categoria": "General"},
    {"id": 22, "nombre": "Cebolla-Granulada (Molida).", "gramos": 40, "precio": "0,75", "categoria": "General"},
    {"id": 23, "nombre": "Cebolla-Hojuela.", "gramos": 40, "precio": "0,68", "categoria": "General"},
-   {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,56", "categoria": "General"},
+   {"id": 24, "nombre": "Chia", "gramos": 50, "precio": "0,67", "categoria": "General"},
    {"id": 25, "nombre": "Chocolate-Barra", "gramos": 100, "precio": "1,18", "categoria": "Chocolates"},
    {"id": 26, "nombre": "*Chocolate-Barra (s)", "gramos": 50, "precio": "0,69", "categoria": "Chocolates"},
    {"id": 115, "nombre": "* Chocolate-Barra (s)", "gramos": 85, "precio": "1,21", "categoria": "Chocolates"},
@@ -121,11 +121,11 @@
    {"id": 119, "nombre": "Cubito Maggi (Pollo y Carne)", "gramos": 1, "precio": "0,42", "categoria": "General"},
    {"id": 120, "nombre": "Aceitunas Rellenas", "gramos": 250, "precio": "1,58", "categoria": "General"},
    {"id": 121, "nombre": "Alcaparras", "gramos": 100, "precio": "1,1", "categoria": "General"},
-   {"id": 122, "nombre": "* Cintillos y Gorritos de Navidad", "gramos": 1, "precio": "1,05", "categoria": "General"},
+   {"id": 122, "nombre": "Cintillos y Gorritos de Navidad", "gramos": 1, "precio": "1,50 (2)", "categoria": "General"},
    {"id": 123, "nombre": "* Dulces Abrillantados", "gramos": 1, "precio": "2,55", "categoria": "General"},
    {"id": 124, "nombre": "Gelatina sin sabor. Lamina Roja", "gramos": 1, "precio": "0,43 (0,80)", "categoria": "Gelatinas"},
    {"id": 125, "nombre": "Gelatina sin sabor. Lamina Blanca", "gramos": 1, "precio": "0,33 (0,56)", "categoria": "Gelatinas"},
-   {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,41", "categoria": "General"},
+   {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,90", "categoria": "General"},
    {"id": 128, "nombre": "Maicena", "gramos": 200, "precio": "0,45", "categoria": "General"},
    {"id": 129, "nombre": "Paprika Ahumada", "gramos": 30, "precio": "0,48", "categoria": "General"},
    {"id": 130, "nombre": "Paprika Picante", "gramos": 35, "precio": "0,48", "categoria": "General"},
@@ -144,16 +144,31 @@
    {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
    {"id": 144, "nombre": "Cebada", "gramos": 150, "precio": "0.51", "categoria": "General"},
    {"id": 145, "nombre": "Sésamo Ajonjolí Negro", "gramos": 40, "precio": "0.55", "categoria": "General"},
-   {"id": 146, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
-   {"id": 147, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
-   {"id": 148, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
-   {"id": 149, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
+   {"id": 146, "nombre": "Cocosette-Susy", "gramos": 1, "precio": "1.012", "categoria": "General"},
+   {"id": 147, "nombre": "Chupeta", "gramos": 1, "precio": "0.166", "categoria": "General"},
+   {"id": 148, "nombre": "Chupetas-Combo", "gramos": 3, "precio": "0.44", "categoria": "General"},
+   {"id": 149, "nombre": "Pulsera Niñas-Dama sencillas", "gramos": 1, "precio": "1.50", "categoria": "General"},
+   {"id": 150, "nombre": "Pulseras Damas, Tejido macramé/Helasticas", "gramos": 1, "precio": "2.50", "categoria": "General"},
+   {"id": 151, "nombre": "Pulseras Caballero piedras y dijes", "gramos": 1, "precio": "5.00", "categoria": "General"},
+   {"id": 152, "nombre": "Pulseras Caballero con piedras sin dijes", "gramos": 1, "precio": "4.5", "categoria": "General"},
+   {"id": 153, "nombre": "Pulseras Caballero sencillas", "gramos": 1, "precio": "4.0", "categoria": "General"},
+   {"id": 154, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 155, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 156, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 157, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 158, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+
+
+
+
+
+
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2.00", "categoria": "Kamil"},
    {"id": 202, "nombre": "Kamil Casabe Galleta", "gramos": 1, "precio": "0,8", "categoria": "Kamil"},
    {"id": 203, "nombre": "Kamil Besito de Coco", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
    {"id": 204, "nombre": "Kamil Naiboa", "gramos": 1, "precio": "0,5", "categoria": "Kamil"},
-   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 1, "precio": "2,50", "categoria": "Kamil"},
-   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 1, "precio": "5,00", "categoria": "Kamil"},
+   {"id": 205, "nombre": "Kamil Dulce de Lechosa Pequeño", "gramos": 200, "precio": "2,50", "categoria": "Kamil"},
+   {"id": 206, "nombre": "Kamil Dulce de Lechosa Grande", "gramos": 400, "precio": "5,00", "categoria": "Kamil"},
    {"id": 207, "nombre": "*Kamil 5 Tortas de Uchireño", "gramos": 1, "precio": "1,50", "categoria": "Kamil"}
  ]
 }
