@@ -144,7 +144,7 @@
    {"id": 143, "nombre": "Laurel Puro", "gramos": 18, "precio": "1.0", "categoria": "General"},
    {"id": 144, "nombre": "Cebada", "gramos": 150, "precio": "0.51", "categoria": "General"},
    {"id": 145, "nombre": "Sésamo Ajonjolí Negro", "gramos": 40, "precio": "0.55", "categoria": "General"},
-   {"id": 146, "nombre": "Cocosette-Susy", "gramos": 1, "precio": "1.00", "categoria": "General"},
+   {"id": 146, "nombre": "Cocosette-Susy", "gramos": 1, "precio": "1.012", "categoria": "General"},
    {"id": 147, "nombre": "Chupeta", "gramos": 1, "precio": "0.166", "categoria": "General"},
    {"id": 148, "nombre": "Chupetas-Combo", "gramos": 3, "precio": "0.44", "categoria": "General"},
    {"id": 149, "nombre": "null", "gramos": 0, "precio": "0.02", "categoria": "General"},
