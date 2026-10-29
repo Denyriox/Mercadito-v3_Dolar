@@ -125,7 +125,7 @@
    {"id": 123, "nombre": "* Dulces Abrillantados", "gramos": 1, "precio": "2,55", "categoria": "General"},
    {"id": 124, "nombre": "Gelatina sin sabor. Lamina Roja", "gramos": 1, "precio": "0,43 (0,80)", "categoria": "Gelatinas"},
    {"id": 125, "nombre": "Gelatina sin sabor. Lamina Blanca", "gramos": 1, "precio": "0,33 (0,56)", "categoria": "Gelatinas"},
-   {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,41", "categoria": "General"},
+   {"id": 127, "nombre": "Pabilo grande", "gramos": 1, "precio": "0,90", "categoria": "General"},
    {"id": 128, "nombre": "Maicena", "gramos": 200, "precio": "0,45", "categoria": "General"},
    {"id": 129, "nombre": "Paprika Ahumada", "gramos": 30, "precio": "0,48", "categoria": "General"},
    {"id": 130, "nombre": "Paprika Picante", "gramos": 35, "precio": "0,48", "categoria": "General"},
