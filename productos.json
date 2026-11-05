@@ -1,6 +1,6 @@
 
 {
-  "dolar": 894.89
+  "dolar": 896.12
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -88,8 +88,8 @@
    {"id": 85, "nombre": "Pasitas (Uvas Pasas)", "gramos": 200, "precio": "1.20", "categoria": "General"},
    {"id": 86, "nombre": "Perejil", "gramos": 20, "precio": "0,49", "categoria": "General"},
    {"id": 87, "nombre": "Pimentón Dulce", "gramos": 40, "precio": "0,58", "categoria": "General"},
-   {"id": 88, "nombre": "Pimienta Negra-Entera.", "gramos": 20, "precio": "0,54", "categoria": "General"},
-   {"id": 89, "nombre": "Pimienta Negra-Molida.", "gramos": 40, "precio": "1,95", "categoria": "General"},
+   {"id": 88, "nombre": "Pimienta Negra-Entera.", "gramos": 20, "precio": "0,56", "categoria": "General"},
+   {"id": 89, "nombre": "Pimienta Negra-Molida.", "gramos": 40, "precio": "0,90", "categoria": "General"},
    {"id": 90, "nombre": "Pimienta Negra-Molida-Pura", "gramos": 20, "precio": "0,90", "categoria": "General"},
    {"id": 91, "nombre": "Ping-Pong", "gramos": 50, "precio": "0,78", "categoria": "Chocolates"},
    {"id": 92, "nombre": "Pistacho", "gramos": 40, "precio": "1,77", "categoria": "Frutos Secos"},
@@ -154,7 +154,7 @@
    {"id": 153, "nombre": "Pulseras Caballero sencillas", "gramos": 1, "precio": "3.0", "categoria": "General"},
    {"id": 154, "nombre": "Pulseras Caballero sólo tejido", "gramos": 1, "precio": "3.00", "categoria": "General"},
    {"id": 155, "nombre": "Pimienta Blanca Entera", "gramos": 20, "precio": "0.76", "categoria": "General"},
-   {"id": 156, "nombre": "Pimienta Blanca Pura Molida", "gramos": 20, "precio": "0.78", "categoria": "General"},
+   {"id": 156, "nombre": "Pimienta Blanca Pura Molida", "gramos": 20, "precio": "0.97", "categoria": "General"},
    {"id": 157, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
    {"id": 158, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
 
