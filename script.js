@@ -246,10 +246,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.renderProducts(e.target.value);
                 this.elements.resetSearch.classList.toggle('hidden', !e.target.value);
             });
+            // Evita que el botón robe el foco al input (en Android eso cierra el teclado)
+            this.elements.resetSearch.addEventListener('pointerdown', (e) => {
+                e.preventDefault();
+            });
             this.elements.resetSearch.addEventListener('click', () => {
                 this.elements.searchBar.value = '';
                 this.renderProducts();
                 this.elements.resetSearch.classList.add('hidden');
+                // Mantiene el foco (y el teclado abierto) en el buscador
+                this.elements.searchBar.focus();
             });
             this.elements.productList.addEventListener('click', (e) => {
                 const plusBtn = e.target.closest('.plus-button');
