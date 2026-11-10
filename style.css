@@ -678,3 +678,256 @@ body.dark-mode, body.dark-mode * { transition: background-color 200ms ease, colo
     background: #23272f;
     color: #e5e7eb;
 }
+
+/* --- Producto personalizado --- */
+#product-list > .custom-product-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+    border: 1.5px dashed #60a5fa;
+}
+#product-list > .custom-product-card:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 24px 0 rgba(37, 99, 235, 0.16);
+}
+#product-list .custom-product-card .add-custom-product {
+    flex-shrink: 0;
+    padding: 0.55rem 1rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+}
+#product-list .custom-product-card .add-custom-product:hover {
+    background: #1d4ed8;
+}
+.custom-badge {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+/* Modal de producto personalizado */
+.custom-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+.custom-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(3px);
+}
+.custom-modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 390px;
+    background: #fff;
+    color: #1f2937;
+    border-radius: 22px;
+    box-shadow: 0 24px 64px rgba(2, 6, 23, 0.35);
+    padding: 1.25rem 1.25rem 1.1rem;
+    animation: fadeIn 0.18s ease;
+}
+.custom-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+.custom-modal-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+.custom-modal-subtitle {
+    margin: 0.2rem 0 0;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+.custom-modal-close {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #475569;
+}
+.custom-modal-close:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+.custom-field {
+    margin-bottom: 0.9rem;
+}
+.custom-field > label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+.custom-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.65rem 0.8rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+}
+.custom-input:focus {
+    border-color: #60a5fa;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.18);
+}
+.custom-amount-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0.55rem;
+}
+.custom-amount-row .custom-input {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.currency-toggle {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 3px;
+    padding: 3px;
+    border-radius: 12px;
+    background: #eef2f7;
+}
+.currency-toggle button {
+    min-width: 46px;
+    padding: 0 0.8rem;
+    border-radius: 9px;
+    background: transparent;
+    color: #475569;
+    font-weight: 700;
+    box-shadow: none;
+}
+.currency-toggle button:hover {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+.currency-toggle button.active,
+.currency-toggle button.active:hover {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.35);
+}
+.custom-hint {
+    min-height: 1rem;
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    color: #64748b;
+}
+.custom-hint.custom-hint-error {
+    color: #dc2626;
+    font-weight: 600;
+}
+.custom-modal-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
+}
+.custom-btn-secondary,
+.custom-btn-primary {
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 0.7rem 0.75rem;
+    font-size: 0.92rem;
+}
+.custom-btn-primary {
+    flex-grow: 1.45;
+    white-space: nowrap;
+}
+.custom-btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+}
+.custom-btn-secondary:hover {
+    background: #e2e8f0;
+}
+.custom-btn-primary {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+.custom-btn-primary:hover {
+    background: #1d4ed8;
+}
+
+body.dark-mode #product-list > .custom-product-card {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.16), rgba(34, 197, 94, 0.12));
+    border-color: rgba(96, 165, 250, 0.5);
+}
+body.dark-mode .custom-badge {
+    background: rgba(37, 99, 235, 0.25);
+    color: #bfdbfe;
+}
+body.dark-mode .custom-modal-panel {
+    background: #0e151e;
+    color: #e6eef8;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+body.dark-mode .custom-modal-title {
+    color: #f1f8ff;
+}
+body.dark-mode .custom-modal-subtitle,
+body.dark-mode .custom-field > label,
+body.dark-mode .custom-hint {
+    color: #9fb0c8;
+}
+body.dark-mode .custom-modal-close {
+    background: rgba(255, 255, 255, 0.06);
+    color: #cfe8ff;
+}
+body.dark-mode .custom-input {
+    background: rgba(255, 255, 255, 0.04);
+    color: #e6eef8;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .custom-input:focus {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: #60a5fa;
+}
+body.dark-mode .currency-toggle {
+    background: rgba(255, 255, 255, 0.06);
+}
+body.dark-mode .currency-toggle button {
+    color: #cfe8ff;
+}
+body.dark-mode .custom-btn-secondary {
+    background: rgba(255, 255, 255, 0.06);
+    color: #cfe8ff;
+}
+body.dark-mode .custom-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
