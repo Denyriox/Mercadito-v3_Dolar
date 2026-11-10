@@ -315,11 +315,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const amount = parseFloat(value);
             return isFinite(amount) ? amount : NaN;
         },
+        // Convierte USD a Bs y redondea hacia arriba a la decena (igual que productos.json)
+        convertUsdToBs(usd) {
+            const raw = Number(usd) * this.dolar;
+            if (!isFinite(raw)) return 0;
+            return Math.ceil(raw / 10) * 10;
+        },
         addCustomProduct({ nombre, monto, moneda }) {
             const amount = Number(monto);
             if (!isFinite(amount) || amount <= 0) return false;
-            const precioBs = moneda === 'USD' ? amount * this.dolar : amount;
-            const precio = Math.round(precioBs * 100) / 100;
+            const precioBs = moneda === 'USD' ? this.convertUsdToBs(amount) : amount;
+            const precio = moneda === 'USD' ? precioBs : Math.round(precioBs * 100) / 100;
             if (!(precio > 0)) return false;
 
             const id = this.generateCustomProductId();
@@ -407,7 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
                 if (currency === 'USD') {
-                    hint.textContent = `≈ Bs. ${self.formatPrice(amount * self.dolar)} (tasa ${self.formatPrice(self.dolar)})`;
+                    hint.textContent = `≈ Bs. ${self.formatPrice(self.convertUsdToBs(amount))} (tasa ${self.formatPrice(self.dolar)}, redondeo a la decena)`;
                 } else {
                     hint.textContent = `≈ $ ${self.formatPrice(self.dolar ? amount / self.dolar : 0)} (tasa ${self.formatPrice(self.dolar)})`;
                 }
