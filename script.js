@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     cart: {},
     // Maintain insertion order of product ids added to the cart
     cartOrder: [],
+    // Productos temporales creados por el usuario (id negativo -> producto)
+    customProducts: {},
         elements: {
             dolarValue: document.getElementById('dolar-value'),
             productList: document.getElementById('product-list'),
@@ -143,6 +145,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error loading products:', error);
             }
         },
+        createCustomProductCard() {
+            const card = document.createElement('div');
+            card.className = 'custom-product-card bg-white p-4 rounded-lg shadow flex flex-col gap-2';
+            card.innerHTML = `
+                <div class="flex flex-row items-center justify-between gap-3">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2">
+                            <i class="bi bi-pencil-square text-blue-600"></i>
+                            <span class="font-bold text-lg product-title-wrap">Producto personalizado</span>
+                        </div>
+                        <div class="text-xs text-gray-500">Monto libre en Bs o $ para hacer cálculos en el carrito</div>
+                    </div>
+                    <button type="button" class="add-custom-product bg-blue-500 hover:bg-blue-600 transition-colors text-white rounded-full px-4 py-2 flex items-center gap-1 shadow-md" aria-label="Añadir producto personalizado">
+                        <i class="bi bi-plus-lg"></i>
+                        <span>Añadir</span>
+                    </button>
+                </div>
+            `;
+            return card;
+        },
         renderProducts(filter = '', categoria = null) {
             // Respect quick-tab override when no explicit filter is provided
 
@@ -150,6 +172,8 @@ document.addEventListener('DOMContentLoaded', () => {
             let effectiveFilter = (filter && String(filter).trim()) || '';
             let effectiveCategoria = categoria || (effectiveFilter ? null : quickTab) || null;
             this.elements.productList.innerHTML = '';
+            // La tarjeta para crear productos personalizados siempre va al inicio
+            this.elements.productList.appendChild(this.createCustomProductCard());
             const filterNormalized = this.normalizeText(effectiveFilter);
             const filterWords = filterNormalized.split(' ').filter(Boolean);
 
@@ -241,6 +265,211 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
             return card;
         },
+        // Subtotal de una línea del carrito (respeta el precio especial por par)
+        getItemSubtotal(product, quantity) {
+            if (!product) return 0;
+            if (product.precio2 && quantity >= 2) {
+                const pares = Math.floor(quantity / 2);
+                const resto = quantity % 2;
+                return (product.precio2 * pares) + (product.precio * resto);
+            }
+            return product.precio * quantity;
+        },
+        // Busca un producto normal o uno personalizado por id
+        findProduct(id) {
+            const normal = this.products.find(p => p.id == id);
+            if (normal) return normal;
+            return this.customProducts[String(id)] || null;
+        },
+        escapeHtml(value) {
+            return String(value == null ? '' : value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        },
+        generateCustomProductId() {
+            // Los ids personalizados son negativos para no chocar con productos.json
+            let id = -Date.now();
+            while (this.customProducts[String(id)] || this.cart[id]) id -= 1;
+            return id;
+        },
+        // Acepta montos como "10", "10,50", "10.50" o "1.234,56"
+        parseCustomAmount(raw) {
+            let value = String(raw == null ? '' : raw).trim().replace(/\s/g, '');
+            if (!value) return NaN;
+            const commas = (value.match(/,/g) || []).length;
+            const dots = (value.match(/\./g) || []).length;
+            if (commas && dots) {
+                if (value.lastIndexOf(',') > value.lastIndexOf('.')) {
+                    value = value.replace(/\./g, '').replace(/,/g, '.');
+                } else {
+                    value = value.replace(/,/g, '');
+                }
+            } else if (commas) {
+                value = value.replace(/,/g, '.');
+            } else if (dots > 1) {
+                value = value.replace(/\./g, '');
+            }
+            const amount = parseFloat(value);
+            return isFinite(amount) ? amount : NaN;
+        },
+        addCustomProduct({ nombre, monto, moneda }) {
+            const amount = Number(monto);
+            if (!isFinite(amount) || amount <= 0) return false;
+            const precioBs = moneda === 'USD' ? amount * this.dolar : amount;
+            const precio = Math.round(precioBs * 100) / 100;
+            if (!(precio > 0)) return false;
+
+            const id = this.generateCustomProductId();
+            const product = {
+                id,
+                nombre: String(nombre || '').trim() || 'Producto personalizado',
+                precio,
+                gramos: '',
+                _personalizado: true,
+                _moneda_original: moneda === 'USD' ? 'USD' : 'Bs',
+                _monto_original: amount,
+                _precio_is_usd: moneda === 'USD',
+                _precio_original: moneda === 'USD' ? { value: amount, currency: 'USD' } : null
+            };
+
+            this.customProducts[String(id)] = product;
+            this.cart[id] = 1;
+            this.cartOrder.push(id);
+            this.saveCart();
+            this.renderProducts(this.elements.searchBar.value);
+            this.updateCartView();
+            if (typeof resetInactivityTimer === 'function') resetInactivityTimer();
+            return true;
+        },
+        openCustomProductModal() {
+            if (document.getElementById('custom-product-modal')) return;
+            const self = this;
+            let currency = 'Bs';
+
+            const modal = document.createElement('div');
+            modal.id = 'custom-product-modal';
+            modal.className = 'custom-modal-overlay';
+            modal.innerHTML = `
+                <div class="custom-modal-backdrop" data-close></div>
+                <form class="custom-modal-panel" novalidate>
+                    <div class="custom-modal-header">
+                        <div>
+                            <h3 class="custom-modal-title">Producto personalizado</h3>
+                            <p class="custom-modal-subtitle">Agrega un monto temporal al carrito.</p>
+                        </div>
+                        <button type="button" class="custom-modal-close" data-close aria-label="Cerrar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="custom-field">
+                        <label for="custom-product-name">Nombre (opcional)</label>
+                        <input id="custom-product-name" class="custom-input" type="text" autocomplete="off" maxlength="80" placeholder="Ej: Bolsa extra">
+                    </div>
+
+                    <div class="custom-field">
+                        <label for="custom-product-amount">Monto</label>
+                        <div class="custom-amount-row">
+                            <input id="custom-product-amount" class="custom-input" type="text" inputmode="decimal" autocomplete="off" placeholder="0,00" required>
+                            <div class="currency-toggle" role="group" aria-label="Moneda del monto">
+                                <button type="button" data-currency="Bs" class="active" aria-pressed="true">Bs</button>
+                                <button type="button" data-currency="USD" aria-pressed="false">$</button>
+                            </div>
+                        </div>
+                        <div id="custom-product-hint" class="custom-hint">Ingresa un monto mayor a 0.</div>
+                    </div>
+
+                    <div class="custom-modal-actions">
+                        <button type="button" class="custom-btn-secondary" data-close>Cancelar</button>
+                        <button type="submit" class="custom-btn-primary">
+                            <i class="bi bi-plus-lg"></i>
+                            <span>Añadir al carrito</span>
+                        </button>
+                    </div>
+                </form>
+            `;
+            document.body.appendChild(modal);
+
+            const form = modal.querySelector('form');
+            const nameInput = modal.querySelector('#custom-product-name');
+            const amountInput = modal.querySelector('#custom-product-amount');
+            const hint = modal.querySelector('#custom-product-hint');
+            const currencyButtons = Array.from(modal.querySelectorAll('[data-currency]'));
+
+            function updateHint() {
+                const amount = self.parseCustomAmount(amountInput.value);
+                hint.classList.remove('custom-hint-error');
+                if (!isFinite(amount) || amount <= 0) {
+                    hint.textContent = 'Ingresa un monto mayor a 0.';
+                    return;
+                }
+                if (currency === 'USD') {
+                    hint.textContent = `≈ Bs. ${self.formatPrice(amount * self.dolar)} (tasa ${self.formatPrice(self.dolar)})`;
+                } else {
+                    hint.textContent = `≈ $ ${self.formatPrice(self.dolar ? amount / self.dolar : 0)} (tasa ${self.formatPrice(self.dolar)})`;
+                }
+            }
+
+            function setCurrency(next) {
+                currency = next === 'USD' ? 'USD' : 'Bs';
+                currencyButtons.forEach(btn => {
+                    const active = btn.dataset.currency === currency;
+                    btn.classList.toggle('active', active);
+                    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+                updateHint();
+            }
+
+            function closeModal() {
+                document.removeEventListener('keydown', onKeyDown);
+                modal.remove();
+            }
+
+            function onKeyDown(e) {
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeModal();
+                }
+            }
+
+            currencyButtons.forEach(btn => {
+                btn.addEventListener('click', () => setCurrency(btn.dataset.currency));
+            });
+            amountInput.addEventListener('input', updateHint);
+            modal.querySelectorAll('[data-close]').forEach(el => {
+                el.addEventListener('click', closeModal);
+            });
+            document.addEventListener('keydown', onKeyDown);
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const amount = self.parseCustomAmount(amountInput.value);
+                if (!isFinite(amount) || amount <= 0) {
+                    hint.textContent = 'Ingresa un monto mayor a 0.';
+                    hint.classList.add('custom-hint-error');
+                    amountInput.focus();
+                    return;
+                }
+                const added = self.addCustomProduct({
+                    nombre: nameInput.value,
+                    monto: amount,
+                    moneda: currency
+                });
+                if (!added) {
+                    hint.textContent = 'No se pudo agregar el producto. Revisa el monto.';
+                    hint.classList.add('custom-hint-error');
+                    return;
+                }
+                closeModal();
+                self.toggleCart(true);
+            });
+
+            setCurrency('Bs');
+            amountInput.focus();
+        },
         attachEventListeners() {
             this.elements.searchBar.addEventListener('input', (e) => {
                 this.renderProducts(e.target.value);
@@ -258,6 +487,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.elements.searchBar.focus();
             });
             this.elements.productList.addEventListener('click', (e) => {
+                if (e.target.closest('.add-custom-product')) {
+                    this.openCustomProductModal();
+                    return;
+                }
                 const plusBtn = e.target.closest('.plus-button');
                 const minusBtn = e.target.closest('.minus-button');
                 if (plusBtn) {
@@ -316,6 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     delete this.cart[id];
                     const idx = this.cartOrder.indexOf(id);
                     if (idx !== -1) this.cartOrder.splice(idx, 1);
+                    if (this.customProducts[String(id)]) delete this.customProducts[String(id)];
                 }
             }
             this.saveCart();
@@ -327,6 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.cart[id]) delete this.cart[id];
             const idx = this.cartOrder.indexOf(id);
             if (idx !== -1) this.cartOrder.splice(idx, 1);
+            if (this.customProducts[String(id)]) delete this.customProducts[String(id)];
             this.saveCart();
             this.renderProducts(this.elements.searchBar.value);
             this.updateCartView();
@@ -348,23 +583,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 .map(id => {
                     // id may be stored as number or string
                     const pid = parseInt(id);
-                    const product = this.products.find(p => p.id == pid);
+                    const product = this.findProduct(pid);
                     return product && this.cart[pid] ? { product, quantity: this.cart[pid] } : null;
                 })
                 .filter(Boolean);
 
             cartProductList.forEach(({ product, quantity }) => {
                 totalItems += quantity;
-                let subtotal = 0;
-                if (product.precio2 && quantity >= 2) {
-                    // Usar precio especial por cada par de unidades
-                    const pares = Math.floor(quantity / 2);
-                    const resto = quantity % 2;
-                    subtotal = (product.precio2 * pares) + (product.precio * resto);
-                } else {
-                    subtotal = product.precio * quantity;
-                }
-                totalBs += subtotal;
+                totalBs += this.getItemSubtotal(product, quantity);
                 productCount++;
                 const cartItem = this.createCartItem(product, quantity);
                 this.elements.cartItems.appendChild(cartItem);
@@ -420,23 +646,24 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         createCartItem(product, quantity) {
             const item = document.createElement('div');
-            item.className = 'flex items-center justify-between gap-2 mb-2';
-                // Calcular subtotal igual que en updateCartView
-                let subtotal = 0;
+            const isCustom = !!product._personalizado;
+            item.className = 'flex items-center justify-between gap-2 mb-2' + (isCustom ? ' custom-cart-item' : '');
+                const subtotal = this.getItemSubtotal(product, quantity);
                 let detalle = '';
                 if (product.precio2 && quantity >= 2) {
                     const pares = Math.floor(quantity / 2);
                     const resto = quantity % 2;
-                    subtotal = (product.precio2 * pares) + (product.precio * resto);
                     detalle = `<span class='text-xs text-blue-700 ml-1'>(x2 Bs. ${this.formatPrice(product.precio2)}${pares > 0 ? ` × ${pares}` : ''}${resto > 0 ? ` + x1 Bs. ${this.formatPrice(product.precio)} × ${resto}` : ''})</span>`;
-                } else {
-                    subtotal = product.precio * quantity;
                 }
+                const nombre = this.escapeHtml(String(product.nombre || '').replace(/^Kamil\s*/i, ''));
+                const gramosHtml = !isCustom && product.gramos ? `<span class="text-xs text-gray-500 ml-2">${this.escapeHtml(product.gramos)}g</span>` : '';
+                const badgeHtml = isCustom ? '<span class="custom-badge">Personalizado</span>' : '';
                 item.innerHTML = `
                     <div class="flex-1 min-w-0">
                         <div>
-                            <span class="font-semibold">${product.nombre.replace(/^Kamil\s*/i, '')}</span>
-                            <span class="text-xs text-gray-500 ml-2">${product.gramos}g</span>
+                            <span class="font-semibold">${nombre}</span>
+                            ${gramosHtml}
+                            ${badgeHtml}
                         </div>
                         <div class="text-xs text-gray-500">Bs. ${this.formatPrice(product.precio)} c/u${this.getOriginalPriceLabel(product)}${detalle}</div>
                     </div>
@@ -462,11 +689,29 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         checkout() {
             // build history entry before clearing cart
-            const cartSnapshot = Object.keys(this.cart).map(id => {
-                const product = this.products.find(p => p.id == id);
-                return product ? { id: product.id, nombre: product.nombre, precio: product.precio, cantidad: this.cart[id] } : null;
+            const order = Array.isArray(this.cartOrder) && this.cartOrder.length > 0
+                ? this.cartOrder
+                : Object.keys(this.cart).map(k => parseInt(k));
+            let totalBs = 0;
+            const cartSnapshot = order.map(id => {
+                const pid = parseInt(id);
+                const product = this.findProduct(pid);
+                const cantidad = this.cart[pid];
+                if (!product || !cantidad) return null;
+                totalBs += this.getItemSubtotal(product, cantidad);
+                const item = {
+                    id: product.id,
+                    nombre: product.nombre,
+                    precio: product.precio,
+                    cantidad
+                };
+                if (product._personalizado) {
+                    item.personalizado = true;
+                    item.monedaOriginal = product._moneda_original;
+                    item.montoOriginal = product._monto_original;
+                }
+                return item;
             }).filter(Boolean);
-            const totalBs = cartSnapshot.reduce((s, it) => s + it.precio * it.cantidad, 0);
             const totalUsd = +(totalBs / this.dolar).toFixed(2);
             const entry = {
                 id: Date.now(),
@@ -480,6 +725,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             this.cart = {};
             this.cartOrder = [];
+            // Los productos personalizados eran temporales: se descartan al procesar el pedido
+            this.customProducts = {};
             this.saveCart();
             this.renderProducts(this.elements.searchBar.value);
             this.updateCartView();
@@ -563,7 +810,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         saveCart() {
             try {
-                const payload = { cart: this.cart, order: this.cartOrder };
+                const payload = { cart: this.cart, order: this.cartOrder, customProducts: this.customProducts };
                 localStorage.setItem('mercadito-cart', JSON.stringify(payload));
             } catch (e) {
                 console.error('Error saving cart', e);
@@ -579,10 +826,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (parsed.cart) {
                             this.cart = parsed.cart;
                             this.cartOrder = Array.isArray(parsed.order) ? parsed.order : Object.keys(this.cart).map(k => parseInt(k));
+                            this.customProducts = (parsed.customProducts && typeof parsed.customProducts === 'object')
+                                ? parsed.customProducts
+                                : {};
                         } else {
                             // legacy: saved directly as cart object
                             this.cart = parsed;
                             this.cartOrder = Object.keys(this.cart).map(k => parseInt(k));
+                            this.customProducts = {};
                         }
                     }
                 } catch (e) {
@@ -675,7 +926,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
                 <div class="mt-2 text-xs text-gray-700" style="display:none;" data-details>
-                    ${entry.items.map(it => `<div>${it.cantidad} x ${it.nombre.replace(/^Kamil\s*/i, '')} — Bs. ${app.formatPrice(it.precio*it.cantidad)}</div>`).join('')}
+                    ${entry.items.map(it => `<div>${it.cantidad} x ${app.escapeHtml(String(it.nombre).replace(/^Kamil\s*/i, ''))}${it.personalizado ? ' <span class="custom-badge">Personalizado</span>' : ''} — Bs. ${app.formatPrice(it.precio*it.cantidad)}</div>`).join('')}
                 </div>
             `;
             const replicateBtn = div.querySelector('[data-replicate]');
@@ -685,7 +936,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (confirm('¿Replicar este pedido? Esto sobreescribirá tu carrito actual.')) {
                         app.cart = {};
                         app.cartOrder = [];
+                        app.customProducts = {};
                         entry.items.forEach(it => {
+                            if (it.personalizado) {
+                                const moneda = it.monedaOriginal === 'USD' ? 'USD' : 'Bs';
+                                app.customProducts[String(it.id)] = {
+                                    id: it.id,
+                                    nombre: it.nombre,
+                                    precio: it.precio,
+                                    gramos: '',
+                                    _personalizado: true,
+                                    _moneda_original: moneda,
+                                    _monto_original: it.montoOriginal,
+                                    _precio_is_usd: moneda === 'USD',
+                                    _precio_original: moneda === 'USD' ? { value: it.montoOriginal, currency: 'USD' } : null
+                                };
+                            }
                             app.cart[it.id] = it.cantidad;
                             app.cartOrder.push(it.id);
                         });

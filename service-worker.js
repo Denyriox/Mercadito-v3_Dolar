@@ -11,7 +11,7 @@
  */
 
 const CACHE_PREFIX = 'mercadito-cache-';
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 const CACHE_NAME = `${CACHE_PREFIX}${CACHE_VERSION}`;
 
 const OFFLINE_URL = './index.html';
