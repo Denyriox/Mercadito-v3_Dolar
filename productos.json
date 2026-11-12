@@ -1,6 +1,6 @@
 
 {
-  "dolar": 896.12
+  "dolar": 904.44
   ,
   "productos": [
    {"id": 1, "nombre": "Acido Borico", "gramos": 45, "precio": "0,5", "categoria": "General"},
@@ -155,7 +155,7 @@
    {"id": 154, "nombre": "Pulseras Caballero sólo tejido", "gramos": 1, "precio": "3.00", "categoria": "General"},
    {"id": 155, "nombre": "Pimienta Blanca Entera", "gramos": 20, "precio": "0.76", "categoria": "General"},
    {"id": 156, "nombre": "Pimienta Blanca Pura Molida", "gramos": 20, "precio": "0.97", "categoria": "General"},
-   {"id": 157, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 157, "nombre": "Café Molido", "gramos": 250, "precio": "3.50", "categoria": "General"},
    {"id": 158, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
 
 
