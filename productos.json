@@ -34,7 +34,7 @@
    {"id": 29, "nombre": "Cilantro-Semillas.", "gramos": 30, "precio": "0,47", "categoria": "General"},
    {"id": 30, "nombre": "Ciruelas-Pasas", "gramos": 100, "precio": "0,64", "categoria": "General"},
    {"id": 31, "nombre": "Coco Rallado", "gramos": 40, "precio": "0,75", "categoria": "General"},
-   {"id": 32, "nombre": "Color", "gramos": 50, "precio": "0,67", "categoria": "General"},
+   {"id": 32, "nombre": "Onoto Molido", "gramos": 50, "precio": "0,67", "categoria": "General"},
    {"id": 33, "nombre": "Comino-Entero.", "gramos": 30, "precio": "0,49", "categoria": "General"},
    {"id": 34, "nombre": "Comino-Molido.", "gramos": 40, "precio": "0,64", "categoria": "General"},
    {"id": 35, "nombre": "Comino-Molido.-Puro", "gramos": 20, "precio": "0,64", "categoria": "General"},
