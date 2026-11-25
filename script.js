@@ -285,6 +285,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return product.precio * quantity;
         },
+        // Subtotal en USD usando los precios originales del JSON (si el producto viene en USD).
+        // Si el precio está en Bs o no hay precio original, se convierte con la tasa actual.
+        getItemSubtotalUsd(product, quantity) {
+            if (!product) return 0;
+            const original = product._precio_original;
+            const esUsd = product._precio_is_usd && original && isFinite(Number(original.value));
+            if (esUsd) {
+                const precioUsd = Number(original.value);
+                const original2 = product._precio2_original;
+                if (original2 && isFinite(Number(original2.value)) && quantity >= 2) {
+                    const pares = Math.floor(quantity / 2);
+                    const resto = quantity % 2;
+                    return Number(original2.value) * pares + precioUsd * resto;
+                }
+                return precioUsd * quantity;
+            }
+            const dolar = Number(this.dolar) > 0 ? Number(this.dolar) : 1;
+            return this.getItemSubtotal(product, quantity) / dolar;
+        },
         // Busca un producto normal o uno personalizado por id
         findProduct(id) {
             const normal = this.products.find(p => p.id == id);
@@ -718,13 +737,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cantidad = this.cart[pid];
                 if (!product || !cantidad) return null;
                 const subtotalBs = this.getItemSubtotal(product, cantidad);
+                const subtotalUsd = this.getItemSubtotalUsd(product, cantidad);
                 totalBs += subtotalBs;
                 const item = {
                     id: product.id,
                     nombre: product.nombre,
                     precio: product.precio,
                     cantidad,
-                    subtotalBs
+                    subtotalBs,
+                    subtotalUsd
                 };
                 if (product._personalizado) {
                     item.personalizado = true;
@@ -763,17 +784,19 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         // Texto de la cuenta para WhatsApp. currency: 'Bs' | 'USD'
         buildShareMessage(snapshot, currency) {
-            const dolar = Number(this.dolar) > 0 ? Number(this.dolar) : 1;
             const enUsd = currency === 'USD';
             const symbol = enUsd ? '$' : 'Bs.';
+            // Por compatibilidad con snapshots antiguos que no traen subtotalUsd.
+            const dolar = Number(this.dolar) > 0 ? Number(this.dolar) : 1;
+            const montoUsd = (item) => Number.isFinite(item.subtotalUsd) ? item.subtotalUsd : item.subtotalBs / dolar;
             const lineas = snapshot.items.map((item, index) => {
-                const monto = enUsd ? (item.subtotalBs / dolar) : item.subtotalBs;
+                const monto = enUsd ? montoUsd(item) : item.subtotalBs;
                 const nombre = String(item.nombre || '').replace(/^Kamil\s*/i, '').trim();
                 const extra = item.personalizado ? ' (Personalizado)' : '';
                 return `${index + 1}. ${item.cantidad} x ${nombre}${extra} — ${symbol} ${this.formatPrice(monto)}`;
             });
             const total = enUsd
-                ? snapshot.items.reduce((sum, item) => sum + (item.subtotalBs / dolar), 0)
+                ? snapshot.items.reduce((sum, item) => sum + montoUsd(item), 0)
                 : snapshot.totalBs;
             return [
                 '*Cuenta Mercadito* 🧾',
