@@ -11,7 +11,7 @@
  */
 
 const CACHE_PREFIX = 'mercadito-cache-';
-const CACHE_VERSION = 'v7';
+const CACHE_VERSION = 'v8';
 const CACHE_NAME = `${CACHE_PREFIX}${CACHE_VERSION}`;
 
 const OFFLINE_URL = './index.html';
@@ -29,6 +29,9 @@ const PRECACHE_URLS = [
   './tabs.js',
   './voiceSearch.js',
   './pagoMovil.js',
+  // Librerías locales para el QR dinámico de Kamil
+  './vendor/crypto-js.min.js',
+  './vendor/qrcode.min.js',
   './manifest.webmanifest',
   './productos.json',
   './dolar.json',
