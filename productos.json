@@ -133,11 +133,11 @@
    {"id": 132, "nombre": "Navidad Sprinkles", "gramos": 25, "precio": "0,94", "categoria": "General"},
    {"id": 133, "nombre": "Navidad Sprinkles Dorados", "gramos": 25, "precio": "1,45", "categoria": "General"},
    {"id": 134, "nombre": "Sal Marina", "gramos": 100, "precio": "0,30", "categoria": "General"},
-   {"id": 135, "nombre": "Semillas de Girasol", "gramos": 35, "precio": "0,59", "categoria": "General"},
+   {"id": 135, "nombre": "Semillas de Girasol", "gramos": 35, "precio": "0,59", "categoria": "Frutos Secos"},
    {"id": 136, "nombre": "Naranja Chocolate", "gramos": 50, "precio": "0.80", "categoria": "Chocolates"},
    {"id": 137, "nombre": "Sal Rosada del Himalaya", "gramos": 100, "precio": "1,33", "categoria": "General"},
    {"id": 138, "nombre": "Boldo", "gramos": 15, "precio": "0,57", "categoria": "General"},
-   {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "1.32", "categoria": "General"},
+   {"id": 139, "nombre": "Arándanos Rojos", "gramos": 50, "precio": "1.32", "categoria": "Frutos Secos"},
    {"id": 140, "nombre": "Ácido Citrico", "gramos": 100, "precio": "0,54", "categoria": "General"},
    {"id": 141, "nombre": "Caldo de Pollo", "gramos": 50, "precio": "0.56", "categoria": "General"},
    {"id": 142, "nombre": "Bin Bin", "gramos": 50, "precio": "0.70", "categoria": "General"},
@@ -157,10 +157,11 @@
    {"id": 156, "nombre": "Pimienta Blanca Pura Molida", "gramos": 20, "precio": "0.97", "categoria": "General"},
    {"id": 157, "nombre": "Café Molido", "gramos": 250, "precio": "3.50", "categoria": "General"},
    {"id": 158, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
-
-
-
-
+   {"id": 159, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 160, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 161, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 162, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
+   {"id": 163, "nombre": "null", "gramos": 0, "precio": "0.00", "categoria": "General"},
 
 
    {"id": 201, "nombre": "Kamil Casabe Mini Galleta", "gramos": 1, "precio": "2.00", "categoria": "Kamil"},
