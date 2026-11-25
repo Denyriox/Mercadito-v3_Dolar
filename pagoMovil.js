@@ -64,19 +64,57 @@ function generarPayloadQrKamil(monto) {
 }
 
 // Dibuja el QR dinámico dentro del contenedor indicado.
+// Se dibuja manualmente sobre un canvas para garantizar:
+//  - 4 módulos de zona de silencio (los QR del banco la llevan; qrcodejs no la agrega)
+//  - módulos enteros (8 px en el canvas, 4 px en pantalla), sin anti-aliasing
+//  - nivel de corrección L, igual que los QR de muestra (versión 10)
 function dibujarQrKamil(contenedor) {
     if (!contenedor) return;
     const totalBs = document.getElementById('cart-total-bs')?.textContent || '0,00';
     const payload = generarPayloadQrKamil(formatearMontoS7B(totalBs));
-    contenedor.innerHTML = '';
-    new QRCode(contenedor, {
+
+    // Usamos la librería solo para calcular la matriz del QR.
+    const aux = document.createElement('div');
+    aux.style.display = 'none';
+    document.body.appendChild(aux);
+    const qr = new QRCode(aux, {
         text: payload,
-        width: 180,
-        height: 180,
-        colorDark: '#000000',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.M
+        width: 1000,
+        height: 1000,
+        correctLevel: QRCode.CorrectLevel.L
     });
+    const matriz = qr._oQRCode;
+    const cantidad = matriz.getModuleCount();
+    aux.remove();
+
+    // Se dibuja a 8 px por módulo y se muestra a la mitad (260 px).
+    // Así en pantallas de alta densidad (2x) cada módulo cae exactamente
+    // en 8 píxeles físicos, sin desenfoque al escalar.
+    const pxModulo = 8;
+    const silencio = 4 * pxModulo; // 4 módulos a cada lado
+    const tamano = cantidad * pxModulo + silencio * 2;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = tamano;
+    canvas.height = tamano;
+    canvas.style.width = '100%';
+    canvas.style.maxWidth = `${cantidad * 4 + 32}px`;
+    canvas.style.height = 'auto';
+    canvas.style.display = 'block';
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, tamano, tamano);
+    ctx.fillStyle = '#000000';
+    for (let fila = 0; fila < cantidad; fila++) {
+        for (let col = 0; col < cantidad; col++) {
+            if (matriz.isDark(fila, col)) {
+                ctx.fillRect(silencio + col * pxModulo, silencio + fila * pxModulo, pxModulo, pxModulo);
+            }
+        }
+    }
+
+    contenedor.innerHTML = '';
+    contenedor.appendChild(canvas);
 }
 
 // Mantiene el QR sincronizado si cambia el total mientras la tarjeta está abierta.
@@ -130,7 +168,7 @@ function mostrarTarjetaPagoMovil(tab = 'Adela') {
         // Para Kamil se genera el QR con el monto actual del carrito;
         // para Adela se mantiene el QR estático.
         const qrHtml = tab === 'Kamil'
-            ? `<div id="qr-kamil-dinamico" class="qr-kamil-dinamico" style="width:180px;height:180px;display:flex;align-items:center;justify-content:center;border-radius:16px;background:white;box-shadow:0 2px 8px #0002;"></div>`
+            ? `<div id="qr-kamil-dinamico" class="qr-kamil-dinamico" style="display:flex;align-items:center;justify-content:center;border-radius:16px;background:white;box-shadow:0 2px 8px #0002;"></div>`
             : `<img src="qr/${tab.toLowerCase()}-qr.png" alt="QR ${tab}" style="max-width:180px;border-radius:16px;box-shadow:0 2px 8px #0002;">`;
 
         tarjeta.innerHTML = `
