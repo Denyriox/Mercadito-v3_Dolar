@@ -217,8 +217,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Fallback: ordenar alfabéticamente por nombre normalizado
                     return aName.localeCompare(bName);
                 });
+            } else if (effectiveCategoria && effectiveCategoria !== 'General') {
+                // En las pestañas de categoría (excepto General), ordenar de menor a mayor precio.
+                // En empates se mantiene el orden alfabético por nombre.
+                filteredProducts.sort((a, b) => {
+                    const diferencia = (Number(a.precio) || 0) - (Number(b.precio) || 0);
+                    return diferencia !== 0
+                        ? diferencia
+                        : this.normalizeText(a.nombre).localeCompare(this.normalizeText(b.nombre));
+                });
             } else {
-                // Sin filtro, mantener orden alfabético (o el orden cargado)
+                // Sin filtro (o en General), mantener orden alfabético (o el orden cargado)
                 filteredProducts.sort((a, b) => this.normalizeText(a.nombre).localeCompare(this.normalizeText(b.nombre)));
             }
 
