@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cartTotalUsd: document.getElementById('cart-total-usd'),
             cartProductCount: document.getElementById('cart-product-count'),
             checkoutButton: document.getElementById('checkout-button'),
+            shareButton: document.getElementById('share-button'),
             cartPreviewBar: document.getElementById('cart-preview-bar'),
             cartPreviewItems: document.getElementById('cart-preview-items'),
             cartPreviewTotal: document.getElementById('cart-preview-total'),
@@ -509,6 +510,9 @@ document.addEventListener('DOMContentLoaded', () => {
             this.elements.cartButton.addEventListener('click', () => this.toggleCart(true));
             this.elements.closeCart.addEventListener('click', () => this.toggleCart(false));
             this.elements.checkoutButton.addEventListener('click', () => this.checkout());
+            if (this.elements.shareButton) {
+                this.elements.shareButton.addEventListener('click', () => this.openShareModal());
+            }
             this.elements.cartItems.addEventListener('click', (e) => {
                 if (e.target.closest('.restar')) {
                     this.updateCart(e.target.closest('.restar').dataset.id, -1);
@@ -693,23 +697,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.elements.cartPreviewBar.style.display = open ? 'none' : (Object.values(this.cart).reduce((a,b)=>a+b,0) > 0 ? 'flex' : 'none');
             }
         },
-        checkout() {
-            // build history entry before clearing cart
+        // Snapshot del carrito actual (no lo modifica). Lo usan el historial y el compartir.
+        buildOrderSnapshot() {
             const order = Array.isArray(this.cartOrder) && this.cartOrder.length > 0
                 ? this.cartOrder
                 : Object.keys(this.cart).map(k => parseInt(k));
             let totalBs = 0;
-            const cartSnapshot = order.map(id => {
+            const items = order.map(id => {
                 const pid = parseInt(id);
                 const product = this.findProduct(pid);
                 const cantidad = this.cart[pid];
                 if (!product || !cantidad) return null;
-                totalBs += this.getItemSubtotal(product, cantidad);
+                const subtotalBs = this.getItemSubtotal(product, cantidad);
+                totalBs += subtotalBs;
                 const item = {
                     id: product.id,
                     nombre: product.nombre,
                     precio: product.precio,
-                    cantidad
+                    cantidad,
+                    subtotalBs
                 };
                 if (product._personalizado) {
                     item.personalizado = true;
@@ -718,12 +724,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return item;
             }).filter(Boolean);
-            const totalUsd = +(totalBs / this.dolar).toFixed(2);
+            return {
+                items,
+                totalBs: +totalBs.toFixed(2),
+                totalUsd: +(totalBs / this.dolar).toFixed(2)
+            };
+        },
+        checkout() {
+            // build history entry before clearing cart
+            const { items: cartSnapshot, totalBs, totalUsd } = this.buildOrderSnapshot();
             const entry = {
                 id: Date.now(),
                 timestamp: new Date().toISOString(),
                 dolar: this.dolar,
-                totalBs: +totalBs.toFixed(2),
+                totalBs,
                 totalUsd,
                 items: cartSnapshot
             };
@@ -737,6 +751,123 @@ document.addEventListener('DOMContentLoaded', () => {
             this.renderProducts(this.elements.searchBar.value);
             this.updateCartView();
             this.toggleCart(false);
+        },
+        // Texto de la cuenta para WhatsApp. currency: 'Bs' | 'USD'
+        buildShareMessage(snapshot, currency) {
+            const dolar = Number(this.dolar) > 0 ? Number(this.dolar) : 1;
+            const enUsd = currency === 'USD';
+            const symbol = enUsd ? '$' : 'Bs.';
+            const lineas = snapshot.items.map((item, index) => {
+                const monto = enUsd ? (item.subtotalBs / dolar) : item.subtotalBs;
+                const nombre = String(item.nombre || '').replace(/^Kamil\s*/i, '').trim();
+                const extra = item.personalizado ? ' (Personalizado)' : '';
+                return `${index + 1}. ${item.cantidad} x ${nombre}${extra} — ${symbol} ${this.formatPrice(monto)}`;
+            });
+            const total = enUsd
+                ? snapshot.items.reduce((sum, item) => sum + (item.subtotalBs / dolar), 0)
+                : snapshot.totalBs;
+            return [
+                '*Cuenta Mercadito* 🧾',
+                '',
+                ...lineas,
+                '',
+                `*Total: ${symbol} ${this.formatPrice(total)}*`
+            ].join('\n');
+        },
+        openShareModal() {
+            if (document.getElementById('share-modal')) return;
+            const snapshot = this.buildOrderSnapshot();
+            if (!snapshot.items.length) {
+                alert('El carrito está vacío. Agrega productos antes de compartir la cuenta.');
+                return;
+            }
+            const self = this;
+            let currency = 'Bs';
+
+            const modal = document.createElement('div');
+            modal.id = 'share-modal';
+            modal.className = 'custom-modal-overlay';
+            modal.innerHTML = `
+                <div class="custom-modal-backdrop" data-close></div>
+                <div class="custom-modal-panel" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+                    <div class="custom-modal-header">
+                        <div>
+                            <h3 id="share-modal-title" class="custom-modal-title">Compartir cuenta</h3>
+                            <p class="custom-modal-subtitle">Elige en qué moneda quieres enviar todos los montos.</p>
+                        </div>
+                        <button type="button" class="custom-modal-close" data-close aria-label="Cerrar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                    <div class="custom-field">
+                        <label>Moneda de los montos</label>
+                        <div class="currency-toggle" role="group" aria-label="Moneda para compartir">
+                            <button type="button" data-share-currency="Bs" class="active" aria-pressed="true">Bs</button>
+                            <button type="button" data-share-currency="USD" aria-pressed="false">$</button>
+                        </div>
+                    </div>
+                    <div class="custom-field">
+                        <label>Vista previa</label>
+                        <pre id="share-preview" class="share-preview"></pre>
+                    </div>
+                    <div class="custom-modal-actions">
+                        <button type="button" class="custom-btn-secondary" data-close>Cancelar</button>
+                        <button type="button" id="share-whatsapp" class="custom-btn-primary">
+                            <i class="bi bi-whatsapp"></i>
+                            <span>Enviar por WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            const preview = modal.querySelector('#share-preview');
+            const currencyButtons = Array.from(modal.querySelectorAll('[data-share-currency]'));
+            const buildMessage = () => self.buildShareMessage(snapshot, currency);
+
+            function setCurrency(next) {
+                currency = next === 'USD' ? 'USD' : 'Bs';
+                currencyButtons.forEach(btn => {
+                    const active = btn.dataset.shareCurrency === currency;
+                    btn.classList.toggle('active', active);
+                    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+                });
+                preview.textContent = buildMessage();
+            }
+
+            function closeModal() {
+                document.removeEventListener('keydown', onKeyDown);
+                modal.remove();
+            }
+
+            function onKeyDown(e) {
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeModal();
+                }
+            }
+
+            currencyButtons.forEach(btn => {
+                btn.addEventListener('click', () => setCurrency(btn.dataset.shareCurrency));
+            });
+            modal.querySelectorAll('[data-close]').forEach(el => {
+                el.addEventListener('click', closeModal);
+            });
+            document.addEventListener('keydown', onKeyDown);
+
+            modal.querySelector('#share-whatsapp').addEventListener('click', () => {
+                const url = `https://wa.me/?text=${encodeURIComponent(buildMessage())}`;
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                closeModal();
+            });
+
+            setCurrency('Bs');
         },
 
         // Historial de Pedidos

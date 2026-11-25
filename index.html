@@ -145,13 +145,20 @@
                     <div id="cart-change-info" class="flex flex-col text-xs text-gray-700 mt-1"></div>
                     <div class="flex items-center gap-2">
                         <button id="btn-qr-pago-movil" 
-                        class="flex items-center justify-center rounded-full pl-1 bg-gradient-to-tr from-green-400 via-green-500 to-green-600 shadow-lg hover:scale-105 transition-all w-14 h-14 border-none outline-none" 
+                        class="flex items-center justify-center rounded-full bg-gradient-to-tr from-green-400 via-green-500 to-green-600 shadow-lg hover:scale-105 transition-all border-none outline-none"
+                        style="width:2.8rem;height:2.8rem;flex:0 0 auto;padding:0 0 0 0.2rem;"
                         title="Pago Móvil">
-                        <i class="bi bi-qr-code leading-none" style="font-size:2em; color:white;"></i>
+                        <i class="bi bi-qr-code leading-none" style="font-size:1.8em; color:white;"></i>
                         </button>
-                        <button id="checkout-button" class="bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full py-3 px-4 text-lg font-semibold shadow-md flex items-center justify-center gap-2" style="min-width:0;">
-                            <i class="bi bi-credit-card-2-front text-lg"></i>
+                        <button id="checkout-button" class="bg-green-500 hover:bg-green-600 transition-colors text-white rounded-full font-semibold shadow-md flex items-center justify-center gap-2" style="flex:1 1 auto;min-width:0;padding:0.65em 0.3em;font-size:1rem;">
+                            <i class="bi bi-credit-card-2-front"></i>
                             <span style="white-space:nowrap;">Procesar Pedido</span>
+                        </button>
+                        <button id="share-button"
+                        class="flex items-center justify-center rounded-full bg-green-500 hover:bg-green-600 shadow-lg hover:scale-105 transition-all border-none outline-none text-white"
+                        style="width:2.8rem;height:2.8rem;flex:0 0 auto;padding:0;"
+                        title="Compartir cuenta por WhatsApp" aria-label="Compartir cuenta por WhatsApp">
+                        <i class="bi bi-whatsapp leading-none" style="font-size:1.7em; color:white;"></i>
                         </button>
                     </div>
                 </div>
